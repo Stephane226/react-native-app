@@ -6,13 +6,8 @@ import * as ScreenOrientation from "expo-screen-orientation";
 // importing quiz JSON
 import questions from "../includes/questions.json";
 
-// Define question type
-type Question = {
-  id: number;
-  question: string;
-  options: string[];
-  answer: string;
-};
+// immport functions
+import { handleStart, handleNext , saveScore} from "../utils/quizHandlers";
 
 export default function Quiz() {
   const QUESTION_TIME = 30;
@@ -32,17 +27,51 @@ export default function Quiz() {
   }, []);
 
   useEffect(() => {
- 
+    if (currentIndex === -1) return;
+
+    setQuestionTimer(QUESTION_TIME);
+
+    questionInterval.current = setInterval(() => {
+      setQuestionTimer((prev) => {
+        if (prev <= 1) {
+          clearInterval(questionInterval.current!);
+          handleNext(null);
+          return QUESTION_TIME;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => {
+      if (questionInterval.current) clearInterval(questionInterval.current);
+    };
   }, [currentIndex]);
 
+  useEffect(() => {
+    if (currentIndex === -1) return;
 
+    quizInterval.current = setInterval(() => {
+      setQuizTimer((prev) => {
+        if (prev <= 1) {
+          clearInterval(quizInterval.current!);
+          setShowResult(true);
+          saveScore(score);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
 
+    return () => {
+      if (quizInterval.current) clearInterval(quizInterval.current);
+    };
+  }, [currentIndex]);
 
   if (currentIndex === -1) {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Welcome to the Quiz!</Text>
-        <TouchableOpacity style={styles.button} onPress={null}>
+        <TouchableOpacity style={styles.button} onPress={() => handleStart(setCurrentIndex)}>
           <Text style={styles.buttonText}>Start Quiz</Text>
         </TouchableOpacity>
       </View>
@@ -53,7 +82,7 @@ export default function Quiz() {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>
-          Your Score: 7287382
+          Your Score: {score}/{questions.length}
         </Text>
       </View>
     );
@@ -64,15 +93,30 @@ export default function Quiz() {
   return (
     <View style={styles.container}>
       <Text style={styles.timer}>
-        ⏱ Q: s | 🧮 Total: timer/s
+        ⏱ Q: {questionTimer}s | 🧮 Total: {quizTimer}s
       </Text>
       <Text style={styles.progress}>
-        Question index here / number
+        Question {currentIndex + 1} / {questions.length}
       </Text>
-      <Text style={styles.question}> question here...</Text>
+      <Text style={styles.question}>{currentQuestion.question}</Text>
 
-
-
+      {currentQuestion.options.map((opt, idx) => (
+        <TouchableOpacity key={idx} style={styles.option} 
+        onPress={() => handleNext(
+         opt,
+         currentIndex,
+         setCurrentIndex,
+         score,
+         setScore,
+         setShowResult,
+         saveScore,
+         questions
+       )}
+       
+       >
+          <Text style={styles.optionText}>{opt}</Text>
+        </TouchableOpacity>
+      ))}
     </View>
   );
 }

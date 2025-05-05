@@ -1,32 +1,42 @@
 [
  {
-   "id": 1,
-   "question": "What is the solution to the given equation? 3y + 9 = 120",
-   "options": ["37", "38", "39", "40"],
-   "answer": "39"
+   "id": 6,
+   "question": "Which language is primarily used for web page styling?",
+   "options": ["HTML", "Python", "CSS", "Java"],
+   "answer": "CSS"
  },
  {
-   "id": 2,
-   "question": "What is the capital of France?",
-   "options": ["Paris", "Berlin", "London", "Rome"],
-   "answer": "Paris"
+   "id": 7,
+   "question": "What does HTML stand for?",
+   "options": [
+     "Hyper Trainer Marking Language",
+     "Hyper Text Markup Language",
+     "High Text Machine Language",
+     "Hyper Text Markdown Language"
+   ],
+   "answer": "Hyper Text Markup Language"
  },
  {
-   "id": 3,
-   "question": "Which planet is known as the Red Planet?",
-   "options": ["Earth", "Venus", "Mars", "Jupiter"],
-   "answer": "Mars"
+   "id": 8,
+   "question": "Which of the following is a programming language?",
+   "options": ["HTTP", "CPU", "JavaScript", "RAM"],
+   "answer": "JavaScript"
  },
  {
-   "id": 4,
-   "question": "What is 5 + 7?",
-   "options": ["10", "11", "12", "13"],
-   "answer": "12"
+   "id": 9,
+   "question": "Which symbol is used for comments in JavaScript?",
+   "options": ["//", "**", "##", "%%"],
+   "answer": "//"
  },
  {
-   "id": 5,
-   "question": "Which gas do plants absorb from the atmosphere?",
-   "options": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
-   "answer": "Carbon Dioxide"
+   "id": 10,
+   "question": "What does a loop do in programming?",
+   "options": [
+     "Saves data",
+     "Stops the program",
+     "Repeats a set of instructions",
+     "Deletes files"
+   ],
+   "answer": "Repeats a set of instructions"
  }
 ]
