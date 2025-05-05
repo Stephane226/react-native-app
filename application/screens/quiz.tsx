@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Alert, ViewStyle } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+  ViewStyle,
+} from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as ScreenOrientation from "expo-screen-orientation";
 
@@ -7,7 +14,7 @@ import * as ScreenOrientation from "expo-screen-orientation";
 import questions from "../includes/questions.json";
 
 // immport functions
-import { handleStart, handleNext , saveScore} from "../utils/quizHandlers";
+import { handleStart, handleNext, saveScore } from "../utils/quizHandlers";
 
 export default function Quiz() {
   const QUESTION_TIME = 30;
@@ -22,9 +29,8 @@ export default function Quiz() {
   const questionInterval = useRef<NodeJS.Timeout | null>(null);
   const quizInterval = useRef<NodeJS.Timeout | null>(null);
 
-
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-
+  const [answers, setAnswers] = useState<(string | null)[]>(Array(questions.length).fill(null));
 
   useEffect(() => {
     ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
@@ -71,11 +77,20 @@ export default function Quiz() {
     };
   }, [currentIndex]);
 
+
+  useEffect(() => {
+   setSelectedOption(answers[currentIndex]);
+ }, [currentIndex]);
+
+ 
   if (currentIndex === -1) {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Welcome to the Quiz!</Text>
-        <TouchableOpacity style={styles.button} onPress={() => handleStart(setCurrentIndex)}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => handleStart(setCurrentIndex)}
+        >
           <Text style={styles.buttonText}>Start Quiz</Text>
         </TouchableOpacity>
       </View>
@@ -96,8 +111,6 @@ export default function Quiz() {
 
   return (
     <View style={styles.container}>
-
-     
       <Text style={styles.timer}>
         ⏱ Q: {questionTimer}s | 🧮 Total: {quizTimer}s
       </Text>
@@ -107,70 +120,82 @@ export default function Quiz() {
       <Text style={styles.question}>{currentQuestion.question}</Text>
 
       {currentQuestion.options.map((opt, idx) => (
-        <TouchableOpacity key={idx} 
-        style={[
-         styles.option,
-         selectedOption === opt && { backgroundColor: "#007AFF", borderColor: "#005BBB" },
-       ]}
-        /*onPress={() => handleNext(
-         opt,
-         currentIndex,
-         setCurrentIndex,
-         score,
-         setScore,
-         setShowResult,
-         saveScore,
-         questions
-       )}*/
-       onPress={() => setSelectedOption(opt)}
-
-       
-       >
-          <Text style={styles.optionText}>{opt}</Text>
-        </TouchableOpacity>
+      <TouchableOpacity
+      key={idx}
+      style={[
+        styles.option,
+        selectedOption === opt && { backgroundColor: "#007AFF", borderColor: "#005BBB" },
+      ]}
+      disabled={answers[currentIndex] !== null}
+      onPress={() => setSelectedOption(opt)}
+    >
+      <Text style={[styles.optionText, answers[currentIndex] !== null && { color: "gray" }]}>
+        {opt}
+      </Text>
+    </TouchableOpacity>
+    
       ))}
 
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginTop: 20,
+        }}
+      >
+        <TouchableOpacity
+          style={[styles.navButton, currentIndex === 0 && { opacity: 0.5 }]}
+          disabled={currentIndex === 0}
+          onPress={() => {
+            setCurrentIndex(currentIndex - 1);
+            setSelectedOption(null);
+          }}
+        >
+          <Text style={styles.navButtonText}>◀ Prev</Text>
+        </TouchableOpacity>
 
-<View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 }}>
-  <TouchableOpacity
-    style={[styles.navButton, currentIndex === 0 && { opacity: 0.5 }]}
-    disabled={currentIndex === 0}
-    onPress={() => {
-      setCurrentIndex(currentIndex - 1);
-      setSelectedOption(null);
-    }}
-  >
-    <Text style={styles.navButtonText}>◀ Prev</Text>
-  </TouchableOpacity>
-
-  <TouchableOpacity
-    style={styles.navButton}
-    onPress={() => {
-      handleNext(
-        selectedOption,
-        currentIndex,
-        setCurrentIndex,
-        score,
-        setScore,
-        setShowResult,
-        saveScore,
-        questions
-      );
-      setSelectedOption(null);
-    }}
-  >
-    <Text style={styles.navButtonText}>Next ▶</Text>
-  </TouchableOpacity>
-</View>
-
-
+        <TouchableOpacity
+          style={styles.navButton}
+          onPress={() => {
+           const updatedAnswers = [...answers];
+           updatedAnswers[currentIndex] = selectedOption;
+           setAnswers(updatedAnswers);
+         
+           handleNext(
+             selectedOption,
+             currentIndex,
+             setCurrentIndex,
+             score,
+             setScore,
+             setShowResult,
+             saveScore,
+             questions
+           );
+         
+           setSelectedOption(null);
+         }}
+         
+        >
+          <Text style={styles.navButtonText}>Next ▶</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", padding: 20, backgroundColor: "#fff" },
-  title: { fontSize: 26, fontWeight: "bold", textAlign: "center", marginBottom: 20 },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 20,
+    backgroundColor: "#fff",
+  },
+  title: {
+    fontSize: 26,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: 20,
+  },
   button: { backgroundColor: "#007AFF", padding: 15, borderRadius: 10 },
   buttonText: { color: "white", fontSize: 18, textAlign: "center" },
   question: { fontSize: 20, marginBottom: 20, textAlign: "center" },
@@ -187,15 +212,14 @@ const styles = StyleSheet.create({
   timer: { fontSize: 14, marginBottom: 10, textAlign: "center", color: "#888" },
 
   navButton: {
-   backgroundColor: "#007AFF",
-   padding: 12,
-   borderRadius: 8,
-   width: 120,
-   alignItems: "center",
- },
- navButtonText: {
-   color: "white",
-   fontSize: 16,
- }
- 
+    backgroundColor: "#007AFF",
+    padding: 12,
+    borderRadius: 8,
+    width: 120,
+    alignItems: "center",
+  },
+  navButtonText: {
+    color: "white",
+    fontSize: 16,
+  },
 });
