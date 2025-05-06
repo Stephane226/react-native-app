@@ -5,9 +5,6 @@ countdown timer per question. If the time runs out, the app automatically moves 
 Navigation is manual,
 using "Next" and "Prev" buttons — answers are not submitted automatically.
 
-## 🚀 Live Demo
-
-(To be added if deployed with Expo.)
 
 ##  Tech Stack
 
