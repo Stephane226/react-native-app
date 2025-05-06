@@ -17,8 +17,8 @@ import questions from "../includes/questions.json";
 import { handleStart, handleNext, saveScore } from "../utils/quizHandlers";
 
 export default function Quiz() {
-  const QUESTION_TIME = 30;
-  const TOTAL_TIME = 90;
+  const QUESTION_TIME = 300;
+  const TOTAL_TIME = 900;
 
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
   const [score, setScore] = useState<number>(0);
@@ -119,6 +119,7 @@ export default function Quiz() {
       </Text>
       <Text style={styles.question}>{currentQuestion.question}</Text>
 
+     <View style={styles.questionsList}>
       {currentQuestion.options.map((opt, idx) => (
       <TouchableOpacity
       key={idx}
@@ -133,15 +134,72 @@ export default function Quiz() {
         {opt}
       </Text>
     </TouchableOpacity>
+   
     
       ))}
+      </View>
+
+
+
+
+
+      <View
+        style={{
+      
+          marginTop: 20,
+         
+          paddingTop : 16,
+          position:'absolute',
+          bottom:40,
+          width:'100%',
+
+        }}
+      >
+
+        
+      <View 
+        style={{
+          flexDirection: "row",
+        }} >
+      {[...Array(40)].map((_, i) => (
+        <View key={i} style={styles.dash} />
+      ))} 
+      </View>
+
+
 
       <View
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
-          marginTop: 20,
+           alignItems:'center',
+          width:'100%',
+          marginTop:15,
+          paddingHorizontal:15
+        
+        
         }}
+      >
+       <View>
+       <TouchableOpacity
+          style={styles.indexQuest}     
+        >
+          <Text style={styles.indexQuestText}> Question {currentIndex + 1} of {questions.length}^</Text>
+        </TouchableOpacity>
+        </View>
+
+
+        
+
+      <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "flex-end",
+            width:'30%',
+            paddingHorizontal:15
+          
+          
+          }}
       >
         <TouchableOpacity
           style={[styles.navButton, currentIndex === 0 && { opacity: 0.5 }]}
@@ -151,11 +209,11 @@ export default function Quiz() {
             setSelectedOption(null);
           }}
         >
-          <Text style={styles.navButtonText}>◀ Prev</Text>
+          <Text style={styles.navButtonText}>◀ </Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.navButton}
+          style={[styles.navButton, {marginLeft:10}]}
           onPress={() => {
            const updatedAnswers = [...answers];
            updatedAnswers[currentIndex] = selectedOption;
@@ -176,8 +234,12 @@ export default function Quiz() {
          }}
          
         >
-          <Text style={styles.navButtonText}>Next ▶</Text>
+          <Text style={styles.navButtonText}> ▶</Text>
         </TouchableOpacity>
+
+        </View>
+        
+      </View>
       </View>
     </View>
   );
@@ -187,8 +249,30 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    padding: 20,
+ 
     backgroundColor: "#fff",
+  },
+  indexQuest:{
+    backgroundColor:'black',
+    padding:12,
+    borderRadius:7
+  },
+  indexQuestText:{color:'white',
+    fontSize:16
+
+  },
+
+
+
+  dash: {
+    height: 4,
+    width: 8,
+    backgroundColor: 'grey',
+    marginRight: 3,
+  },
+
+  questionsList:{
+    padding:14
   },
   title: {
     fontSize: 26,
@@ -200,6 +284,7 @@ const styles = StyleSheet.create({
   buttonText: { color: "white", fontSize: 18, textAlign: "center" },
   question: { fontSize: 20, marginBottom: 20, textAlign: "center" },
   option: {
+    
     backgroundColor: "#f2f2f2",
     padding: 15,
     borderRadius: 10,
@@ -213,9 +298,16 @@ const styles = StyleSheet.create({
 
   navButton: {
     backgroundColor: "#007AFF",
-    padding: 12,
-    borderRadius: 8,
-    width: 120,
+    borderColor:'blueviolet',
+    borderWidth:1,
+
+    borderRadius: 90,
+    width: 56,
+    height:56,
+    display:'flex',
+    alignItems:'center',
+    flexDirection:"column",
+    justifyContent:'center',
     alignItems: "center",
   },
   navButtonText: {

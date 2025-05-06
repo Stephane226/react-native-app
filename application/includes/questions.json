@@ -22,7 +22,7 @@
    "options": ["HTTP", "CPU", "JavaScript", "RAM"],
    "answer": "JavaScript"
  },
- {
+ { 
    "id": 9,
    "question": "Which symbol is used for comments in JavaScript?",
    "options": ["//", "**", "##", "%%"],
