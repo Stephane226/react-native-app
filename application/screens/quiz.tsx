@@ -125,14 +125,28 @@ export default function Quiz() {
       key={idx}
       style={[
         styles.option,
-        selectedOption === opt && { backgroundColor: "#007AFF", borderColor: "#005BBB" },
+        selectedOption === opt && { borderColor: "#007AFF", borderWidth: 2 },
       ]}
       disabled={answers[currentIndex] !== null}
       onPress={() => setSelectedOption(opt)}
     >
+      <View
+       style={{
+        display:'flex',
+        justifyContent:'flex-start',
+        flexDirection:'row',
+        alignItems:'center'
+       }}
+      >
+      <View style={[styles.optionSelect, selectedOption === opt && { backgroundColor: "blue" }]}>
+        <Text  style={[styles.optionSelectNum, , selectedOption === opt &&  {color:'white'  }]}> A </Text>
+      </View>
+
       <Text style={[styles.optionText, answers[currentIndex] !== null && { color: "gray" }]}>
         {opt}
       </Text>
+      </View>
+
     </TouchableOpacity>
    
     
@@ -262,8 +276,24 @@ const styles = StyleSheet.create({
 
   },
 
+  optionSelect:{
+    borderColor:'gray',
+    width:30,
+    height:30,
+    borderWidth : 2,
+    borderRadius:20,
+    textAlign:'center',
+     alignItems:'center',
+    display:'flex',
+    flexDirection:'column',
+    justifyContent:'center',
+    marginRight : 10
 
+  },
 
+  optionSelectNum :{
+    fontSize : 18
+  },
   dash: {
     height: 4,
     width: 8,
