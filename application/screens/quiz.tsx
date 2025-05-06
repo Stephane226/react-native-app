@@ -16,9 +16,15 @@ import questions from "../includes/questions.json";
 // immport functions
 import { handleStart, handleNext, saveScore } from "../utils/quizHandlers";
 
+//icons
+import { Feather } from '@expo/vector-icons';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import Entypo from '@expo/vector-icons/Entypo';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+
 export default function Quiz() {
   const QUESTION_TIME = 300;
-  const TOTAL_TIME = 900;
+  const TOTAL_TIME = 1000;
 
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
   const [score, setScore] = useState<number>(0);
@@ -31,6 +37,7 @@ export default function Quiz() {
 
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [answers, setAnswers] = useState<(string | null)[]>(Array(questions.length).fill(null));
+  const [showTimer, setShowTimer] = useState(true);
 
   useEffect(() => {
     ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
@@ -111,12 +118,227 @@ export default function Quiz() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.timer}>
-        ⏱ Q: {questionTimer}s | 🧮 Total: {quizTimer}s
+      
+
+
+
+    
+      <View style={{
+          
+           marginHorizontal:15,
+           marginBottom : 20,
+           display:'flex',
+           flexDirection : 'row',
+           justifyContent:'space-between',
+           alignItems : 'center',
+
+
+        }}>
+
+
+<View style={{
+
+}}>
+  <Text style={{
+    fontSize: 20
+  }}> Linear Equations. </Text>
+  </View>
+
+
+
+<View style={{
+  display:'flex',
+  flexDirection:'row',
+  alignItems:'center',
+
+
+}}>
+ {showTimer && (
+        <Text>
+          ⏱ {Math.floor(quizTimer / 60).toString().padStart(2, '0')}:
+          {(quizTimer % 60).toString().padStart(2, '0')}
+        </Text>
+      )}
+
+
+  <TouchableOpacity
+          style={{
+            marginLeft:10,
+              padding:5,
+              borderColor:'gray',
+              borderWidth:2,
+              borderRadius:14
+
+          }}
+    
+          onPress={() => setShowTimer(!showTimer)}
+          >
+            <Text style={{ fontSize: 15 }}>{showTimer ? 'Hide' : 'Show'}</Text>
+
+          </TouchableOpacity>
+
+  </View>
+
+
+</View>
+ 
+
+
+      <View style={{
+           height:45,
+           marginHorizontal:15,
+           marginBottom : 20,
+           display:'flex',
+           flexDirection : 'row',
+           justifyContent:'space-between',
+           alignItems : 'center',
+           position:'relative',
+           width:'60%',
+           marginLeft:'auto',
+           marginRight:'auto'
+
+        }}>
+
+          <View 
+          style={{
+            display:'flex',
+            flexDirection : 'column',
+            alignItems : 'center',
+          }}
+          > 
+          <Ionicons name="calculator-outline" size={24} color="black" />
+            <Text style={{color:'gray'}}>Calculator</Text>
+            </View>
+     
+            <View 
+          style={{
+            display:'flex',
+            flexDirection : 'column',
+            alignItems : 'center',
+          }}
+          > 
+         <MaterialCommunityIcons name="math-compass" size={24} color="black" />
+            <Text style={{color:'gray'}}>Refereneator</Text>
+            </View>
+
+
+            <View 
+          style={{
+            display:'flex',
+            flexDirection : 'column',
+            alignItems : 'center',
+          }}
+          > 
+        <Entypo name="dots-three-vertical" size={24} color="black" />
+            <Text style={{color:'gray'}}>More</Text>
+            </View>
+
+
+     </View>
+
+
+      <View 
+        style={{
+          flexDirection: "row",
+          marginBottom:25
+        }} >
+      {[...Array(40)].map((_, i) => (
+        <View key={i} style={styles.dash} />
+      ))} 
+      </View>
+
+
+        <View style={{
+           height:45,
+           marginHorizontal:15,
+           marginBottom : 20,
+           backgroundColor:'#ececec',
+           display:'flex',
+           flexDirection : 'row',
+           alignItems : 'center',
+           position:'relative'
+
+
+
+        }}>
+     
+     <View 
+        style={{
+          flexDirection: "row",
+          position:'absolute',
+          bottom:0
+        }} >
+      {[...Array(33)].map((_, i) => (
+        <View key={i} style={styles.dashTop} />
+      ))} 
+      </View>
+
+
+          <View
+           style={{
+            backgroundColor:'black',
+            width:25,
+            height:'100%',
+           display:'flex',
+           justifyContent : 'center',
+           alignItems:'center'
+
+           }}>
+             <Text style={{
+            color:'white',
+            fontSize:20,
+          
+           }}>1</Text>
+          </View>  
+
+
+          <View
+           style={{  display:'flex',
+            justifyContent : 'center',
+            flexDirection : 'row',
+            alignItems : 'center',
+            marginLeft : 10
+            }}>
+              <Feather
+        name="bookmark"
+        size={24}
+        color={'black'}
+      />
+      <Text style={{fontSize: 17}}>  Mark for Review</Text>
+
+          </View>  
+
+
+          <View
+           style={{
+            position : 'absolute',
+            right : 5,
+            borderColor:'gray',
+            borderWidth : 1,
+            backgroundColor: 'white',
+            padding:4,
+            borderRadius : 8
+
+           }}>
+            <Text>ABC</Text>
+            
+          </View>  
+
+          <Text style={styles.timer}>
+         {questionTimer}s 
       </Text>
-      <Text style={styles.progress}>
-        Question {currentIndex + 1} / {questions.length}
-      </Text>
+
+          
+
+          
+
+
+          </View>
+          
+
+
+
+
       <Text style={styles.question}>{currentQuestion.question}</Text>
 
      <View style={styles.questionsList}>
@@ -181,7 +403,7 @@ export default function Quiz() {
       </View>
 
 
-
+ 
       <View
         style={{
           flexDirection: "row",
@@ -210,6 +432,7 @@ export default function Quiz() {
             flexDirection: "row",
             justifyContent: "flex-end",
             width:'30%',
+        
             paddingHorizontal:15
           
           
@@ -301,6 +524,14 @@ const styles = StyleSheet.create({
     marginRight: 3,
   },
 
+  dashTop :{
+    height: 4,
+    width: 8,
+    backgroundColor: '#e1dbdb',
+    marginRight: 3,
+  },
+
+
   questionsList:{
     padding:14
   },
@@ -312,7 +543,7 @@ const styles = StyleSheet.create({
   },
   button: { backgroundColor: "#007AFF", padding: 15, borderRadius: 10 },
   buttonText: { color: "white", fontSize: 18, textAlign: "center" },
-  question: { fontSize: 20, marginBottom: 20, textAlign: "center" },
+  question: { fontSize: 20, marginBottom: 20, textAlign: "left" , paddingHorizontal:15},
   option: {
     
     backgroundColor: "#f2f2f2",
@@ -324,7 +555,15 @@ const styles = StyleSheet.create({
   },
   optionText: { fontSize: 16, textAlign: "center" },
   progress: { fontSize: 16, marginBottom: 10, textAlign: "center" },
-  timer: { fontSize: 14, marginBottom: 10, textAlign: "center", color: "#888" },
+  timer: { fontSize: 12, marginBottom: 10, textAlign: "center", color: "black" , backgroundColor:'#ffc3c3',
+    width:30,
+    height:30,borderRadius:20, 
+    paddingTop:8,
+    position:'absolute',
+    right:50,
+    top:6
+   
+   },
 
   navButton: {
     backgroundColor: "#007AFF",
