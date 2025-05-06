@@ -17,13 +17,13 @@ import questions from "../includes/questions.json";
 import { handleStart, handleNext, saveScore } from "../utils/quizHandlers";
 
 //icons
-import { Feather } from '@expo/vector-icons';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import Entypo from '@expo/vector-icons/Entypo';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { Feather } from "@expo/vector-icons";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import Entypo from "@expo/vector-icons/Entypo";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 export default function Quiz() {
-  const QUESTION_TIME = 10;
+  const QUESTION_TIME = 60;
   const TOTAL_TIME = 1000;
 
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
@@ -36,7 +36,9 @@ export default function Quiz() {
   const quizInterval = useRef<NodeJS.Timeout | null>(null);
 
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [answers, setAnswers] = useState<(string | null)[]>(Array(questions.length).fill(null));
+  const [answers, setAnswers] = useState<(string | null)[]>(
+    Array(questions.length).fill(null)
+  );
   const [showTimer, setShowTimer] = useState(true);
 
   useEffect(() => {
@@ -48,20 +50,17 @@ export default function Quiz() {
 
     setQuestionTimer(QUESTION_TIME);
 
-  
-
-
     questionInterval.current = setInterval(() => {
       setQuestionTimer((prev) => {
         if (prev <= 1) {
           clearInterval(questionInterval.current!);
-    
+
           const updatedAnswers = [...answers];
           updatedAnswers[currentIndex] = null;
           setAnswers(updatedAnswers);
-    
-          setSelectedOption(null); // bu opsiyonel
-    
+
+          setSelectedOption(null); 
+
           handleNext(
             null,
             currentIndex,
@@ -72,15 +71,12 @@ export default function Quiz() {
             saveScore,
             questions
           );
-    
+
           return QUESTION_TIME;
         }
         return prev - 1;
       });
     }, 1000);
-
-    
-
 
     return () => {
       if (questionInterval.current) clearInterval(questionInterval.current);
@@ -107,12 +103,10 @@ export default function Quiz() {
     };
   }, [currentIndex]);
 
-
   useEffect(() => {
-   setSelectedOption(answers[currentIndex]);
- }, [currentIndex]);
+    setSelectedOption(answers[currentIndex]);
+  }, [currentIndex]);
 
- 
   if (currentIndex === -1) {
     return (
       <View style={styles.container}>
@@ -141,367 +135,333 @@ export default function Quiz() {
 
   return (
     <View style={styles.container}>
-      
-
-
-
-    
-      <View style={{
-          
-           marginHorizontal:15,
-           marginBottom : 20,
-           display:'flex',
-           flexDirection : 'row',
-           justifyContent:'space-between',
-           alignItems : 'center',
-
-
-        }}>
-
-
-<View style={{
-
-}}>
-  <Text style={{
-    fontSize: 20
-  }}> Linear Equations. </Text>
-  </View>
-
-
-
-<View style={{
-  display:'flex',
-  flexDirection:'row',
-  alignItems:'center',
-
-
-}}>
- {showTimer && (
-        <Text>
-          ⏱ {Math.floor(quizTimer / 60).toString().padStart(2, '0')}:
-          {(quizTimer % 60).toString().padStart(2, '0')}
-        </Text>
-      )}
-
-
-  <TouchableOpacity
-          style={{
-            marginLeft:10,
-              padding:5,
-              borderColor:'gray',
-              borderWidth:2,
-              borderRadius:14
-
-          }}
-    
-          onPress={() => setShowTimer(!showTimer)}
+      <View
+        style={{
+          marginHorizontal: 15,
+          marginBottom: 20,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <View style={{}}>
+          <Text
+            style={{
+              fontSize: 20,
+            }}
           >
-            <Text style={{ fontSize: 15 }}>{showTimer ? 'Hide' : 'Show'}</Text>
+            {" "}
+            Linear Equations.{" "}
+          </Text>
+        </View>
 
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          {showTimer && (
+            <Text>
+              ⏱{" "}
+              {Math.floor(quizTimer / 60)
+                .toString()
+                .padStart(2, "0")}
+              :{(quizTimer % 60).toString().padStart(2, "0")}
+            </Text>
+          )}
+
+          <TouchableOpacity
+            style={{
+              marginLeft: 10,
+              padding: 5,
+              borderColor: "gray",
+              borderWidth: 2,
+              borderRadius: 14,
+            }}
+            onPress={() => setShowTimer(!showTimer)}
+          >
+            <Text style={{ fontSize: 15 }}>{showTimer ? "Hide" : "Show"}</Text>
           </TouchableOpacity>
+        </View>
+      </View>
 
-  </View>
-
-
-</View>
- 
-
-
-      <View style={{
-           height:45,
-           marginHorizontal:15,
-           marginBottom : 20,
-           display:'flex',
-           flexDirection : 'row',
-           justifyContent:'space-between',
-           alignItems : 'center',
-           position:'relative',
-           width:'60%',
-           marginLeft:'auto',
-           marginRight:'auto'
-
-        }}>
-
-          <View 
+      <View
+        style={{
+          height: 45,
+          marginHorizontal: 15,
+          marginBottom: 20,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          position: "relative",
+          width: "60%",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
+        <View
           style={{
-            display:'flex',
-            flexDirection : 'column',
-            alignItems : 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
-          > 
+        >
           <Ionicons name="calculator-outline" size={24} color="black" />
-            <Text style={{color:'gray'}}>Calculator</Text>
-            </View>
-     
-            <View 
+          <Text style={{ color: "gray" }}>Calculator</Text>
+        </View>
+
+        <View
           style={{
-            display:'flex',
-            flexDirection : 'column',
-            alignItems : 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
-          > 
-         <MaterialCommunityIcons name="math-compass" size={24} color="black" />
-            <Text style={{color:'gray'}}>Refereneator</Text>
-            </View>
+        >
+          <MaterialCommunityIcons name="math-compass" size={24} color="black" />
+          <Text style={{ color: "gray" }}>Refereneator</Text>
+        </View>
 
-
-            <View 
+        <View
           style={{
-            display:'flex',
-            flexDirection : 'column',
-            alignItems : 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
-          > 
-        <Entypo name="dots-three-vertical" size={24} color="black" />
-            <Text style={{color:'gray'}}>More</Text>
-            </View>
-
-
-     </View>
-
-
-      <View 
-        style={{
-          flexDirection: "row",
-          marginBottom:25
-        }} >
-      {[...Array(40)].map((_, i) => (
-        <View key={i} style={styles.dash} />
-      ))} 
+        >
+          <Entypo name="dots-three-vertical" size={24} color="black" />
+          <Text style={{ color: "gray" }}>More</Text>
+        </View>
       </View>
 
-
-        <View style={{
-           height:45,
-           marginHorizontal:15,
-           marginBottom : 20,
-           backgroundColor:'#ececec',
-           display:'flex',
-           flexDirection : 'row',
-           alignItems : 'center',
-           position:'relative'
-
-
-
-        }}>
-     
-     <View 
+      <View
         style={{
           flexDirection: "row",
-          position:'absolute',
-          bottom:0
-        }} >
-      {[...Array(33)].map((_, i) => (
-        <View key={i} style={styles.dashTop} />
-      ))} 
+          marginBottom: 25,
+        }}
+      >
+        {[...Array(40)].map((_, i) => (
+          <View key={i} style={styles.dash} />
+        ))}
       </View>
 
+      <View
+        style={{
+          height: 45,
+          marginHorizontal: 15,
+          marginBottom: 20,
+          backgroundColor: "#ececec",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          position: "relative",
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            position: "absolute",
+            bottom: 0,
+          }}
+        >
+          {[...Array(33)].map((_, i) => (
+            <View key={i} style={styles.dashTop} />
+          ))}
+        </View>
 
-          <View
-           style={{
-            backgroundColor:'black',
-            width:25,
-            height:'100%',
-           display:'flex',
-           justifyContent : 'center',
-           alignItems:'center'
+        <View
+          style={{
+            backgroundColor: "black",
+            width: 25,
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Text
+            style={{
+              color: "white",
+              fontSize: 20,
+            }}
+          >
+            1
+          </Text>
+        </View>
 
-           }}>
-             <Text style={{
-            color:'white',
-            fontSize:20,
-          
-           }}>1</Text>
-          </View>  
+        <View
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "row",
+            alignItems: "center",
+            marginLeft: 10,
+          }}
+        >
+          <Feather name="bookmark" size={24} color={"black"} />
+          <Text style={{ fontSize: 17 }}> Mark for Review</Text>
+        </View>
 
+        <View
+          style={{
+            position: "absolute",
+            right: 5,
+            borderColor: "gray",
+            borderWidth: 1,
+            backgroundColor: "white",
+            padding: 4,
+            borderRadius: 8,
+          }}
+        >
+          <Text>ABC</Text>
+        </View>
 
-          <View
-           style={{  display:'flex',
-            justifyContent : 'center',
-            flexDirection : 'row',
-            alignItems : 'center',
-            marginLeft : 10
-            }}>
-              <Feather
-        name="bookmark"
-        size={24}
-        color={'black'}
-      />
-      <Text style={{fontSize: 17}}>  Mark for Review</Text>
-
-          </View>  
-
-
-          <View
-           style={{
-            position : 'absolute',
-            right : 5,
-            borderColor:'gray',
-            borderWidth : 1,
-            backgroundColor: 'white',
-            padding:4,
-            borderRadius : 8
-
-           }}>
-            <Text>ABC</Text>
-            
-          </View>  
-
-          <Text style={styles.timer}>
-         {questionTimer}s 
-      </Text>
-
-          
-
-          
-
-
-          </View>
-          
-
-
-
+        <Text style={styles.timer}>{questionTimer}s</Text>
+      </View>
 
       <Text style={styles.question}>{currentQuestion.question}</Text>
 
-     <View style={styles.questionsList}>
-      {currentQuestion.options.map((opt, idx) => (
-      <TouchableOpacity
-      key={idx}
-      style={[
-        styles.option,
-        selectedOption === opt && { borderColor: "#007AFF", borderWidth: 2 },
-      ]}
-      disabled={answers[currentIndex] !== null}
-      onPress={() => setSelectedOption(opt)}
-    >
-      <View
-       style={{
-        display:'flex',
-        justifyContent:'flex-start',
-        flexDirection:'row',
-        alignItems:'center'
-       }}
-      >
-      <View style={[styles.optionSelect, selectedOption === opt && { backgroundColor: "blue" }]}>
-        <Text  style={[styles.optionSelectNum, , selectedOption === opt &&  {color:'white'  }]}> A </Text>
+      <View style={styles.questionsList}>
+        {currentQuestion.options.map((opt, idx) => (
+          <TouchableOpacity
+            key={idx}
+            style={[
+              styles.option,
+              selectedOption === opt && {
+                borderColor: "#007AFF",
+                borderWidth: 2,
+              },
+            ]}
+            disabled={answers[currentIndex] !== null}
+            onPress={() => setSelectedOption(opt)}
+          >
+            <View
+              style={{
+                display: "flex",
+                justifyContent: "flex-start",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <View
+                style={[
+                  styles.optionSelect,
+                  selectedOption === opt && { backgroundColor: "blue" },
+                ]}
+              >
+                <Text
+                  style={[
+                    styles.optionSelectNum,
+                    ,
+                    selectedOption === opt && { color: "white" },
+                  ]}
+                >
+                  {" "}
+                  A{" "}
+                </Text>
+              </View>
+
+              <Text
+                style={[
+                  styles.optionText,
+                  answers[currentIndex] !== null && { color: "gray" },
+                ]}
+              >
+                {opt}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        ))}
       </View>
-
-      <Text style={[styles.optionText, answers[currentIndex] !== null && { color: "gray" }]}>
-        {opt}
-      </Text>
-      </View>
-
-    </TouchableOpacity>
-   
-    
-      ))}
-      </View>
-
-
-
-
 
       <View
         style={{
-      
           marginTop: 20,
-         
-          paddingTop : 16,
-          position:'absolute',
-          bottom:40,
-          width:'100%',
 
+          paddingTop: 16,
+          position: "absolute",
+          bottom: 40,
+          width: "100%",
         }}
       >
-
-        
-      <View 
-        style={{
-          flexDirection: "row",
-        }} >
-      {[...Array(40)].map((_, i) => (
-        <View key={i} style={styles.dash} />
-      ))} 
-      </View>
-
-
- 
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-           alignItems:'center',
-          width:'100%',
-          marginTop:15,
-          paddingHorizontal:15
-        
-        
-        }}
-      >
-       <View>
-       <TouchableOpacity
-          style={styles.indexQuest}     
-        >
-          <Text style={styles.indexQuestText}> Question {currentIndex + 1} of {questions.length}^</Text>
-        </TouchableOpacity>
-        </View>
-
-
-        
-
-      <View
+        <View
           style={{
             flexDirection: "row",
-            justifyContent: "flex-end",
-            width:'30%',
-        
-            paddingHorizontal:15
-          
-          
-          }}
-      >
-        <TouchableOpacity
-          style={[styles.navButton, currentIndex === 0 && { opacity: 0.5 }]}
-          disabled={currentIndex === 0}
-          onPress={() => {
-            setCurrentIndex(currentIndex - 1);
-            setSelectedOption(null);
           }}
         >
-          <Text style={styles.navButtonText}>◀ </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[styles.navButton, {marginLeft:10}]}
-          onPress={() => {
-           const updatedAnswers = [...answers];
-           updatedAnswers[currentIndex] = selectedOption;
-           setAnswers(updatedAnswers);
-         
-           handleNext(
-             selectedOption,
-             currentIndex,
-             setCurrentIndex,
-             score,
-             setScore,
-             setShowResult,
-             saveScore,
-             questions
-           );
-         
-           setSelectedOption(null);
-         }}
-         
-        >
-          <Text style={styles.navButtonText}> ▶</Text>
-        </TouchableOpacity>
-
+          {[...Array(40)].map((_, i) => (
+            <View key={i} style={styles.dash} />
+          ))}
         </View>
-        
-      </View>
-      </View> 
 
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
+            marginTop: 15,
+            paddingHorizontal: 15,
+          }}
+        >
+          <View>
+            <TouchableOpacity style={styles.indexQuest}>
+              <Text style={styles.indexQuestText}>
+                {" "}
+                Question {currentIndex + 1} of {questions.length}^
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "flex-end",
+              width: "30%",
+
+              paddingHorizontal: 15,
+            }}
+          >
+            <TouchableOpacity
+              style={[styles.navButton, currentIndex === 0 && { opacity: 0.5 }]}
+              disabled={currentIndex === 0}
+              onPress={() => {
+                setCurrentIndex(currentIndex - 1);
+                setSelectedOption(null);
+              }}
+            >
+              <Text style={styles.navButtonText}>◀ </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.navButton, { marginLeft: 10 }]}
+              onPress={() => {
+                const updatedAnswers = [...answers];
+                updatedAnswers[currentIndex] = selectedOption;
+                setAnswers(updatedAnswers);
+
+                handleNext(
+                  selectedOption,
+                  currentIndex,
+                  setCurrentIndex,
+                  score,
+                  setScore,
+                  setShowResult,
+                  saveScore,
+                  questions
+                );
+
+                setSelectedOption(null);
+              }}
+            >
+              <Text style={styles.navButtonText}> ▶</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
     </View>
   );
 }
@@ -510,54 +470,48 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
- 
     backgroundColor: "#fff",
   },
-  indexQuest:{
-    backgroundColor:'black',
-    padding:12,
-    borderRadius:7
+  indexQuest: {
+    backgroundColor: "black",
+    padding: 12,
+    borderRadius: 7,
   },
-  indexQuestText:{color:'white',
-    fontSize:16
+  indexQuestText: { color: "white", fontSize: 16 },
 
-  },
-
-  optionSelect:{
-    borderColor:'gray',
-    width:30,
-    height:30,
-    borderWidth : 2,
-    borderRadius:20,
-    textAlign:'center',
-     alignItems:'center',
-    display:'flex',
-    flexDirection:'column',
-    justifyContent:'center',
-    marginRight : 10
-
+  optionSelect: {
+    borderColor: "gray",
+    width: 30,
+    height: 30,
+    borderWidth: 2,
+    borderRadius: 20,
+    textAlign: "center",
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    marginRight: 10,
   },
 
-  optionSelectNum :{
-    fontSize : 18
+  optionSelectNum: {
+    fontSize: 18,
   },
   dash: {
     height: 4,
     width: 8,
-    backgroundColor: 'grey',
+    backgroundColor: "grey",
     marginRight: 3,
   },
 
-  dashTop :{
+  dashTop: {
     height: 4,
     width: 8,
-    backgroundColor: '#e1dbdb',
+    backgroundColor: "#e1dbdb",
     marginRight: 3,
   },
 
-
-  questionsList:{
-    padding:14
+  questionsList: {
+    padding: 14,
   },
   title: {
     fontSize: 26,
@@ -565,11 +519,20 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 20,
   },
-  button: { backgroundColor: "#007AFF", padding: 15, borderRadius: 10, marginHorizontal:30 },
+  button: {
+    backgroundColor: "#007AFF",
+    padding: 15,
+    borderRadius: 10,
+    marginHorizontal: 30,
+  },
   buttonText: { color: "white", fontSize: 18, textAlign: "center" },
-  question: { fontSize: 20, marginBottom: 20, textAlign: "left" , paddingHorizontal:15},
+  question: {
+    fontSize: 20,
+    marginBottom: 20,
+    textAlign: "left",
+    paddingHorizontal: 15,
+  },
   option: {
-    
     backgroundColor: "#f2f2f2",
     padding: 15,
     borderRadius: 10,
@@ -579,28 +542,33 @@ const styles = StyleSheet.create({
   },
   optionText: { fontSize: 16, textAlign: "center" },
   progress: { fontSize: 16, marginBottom: 10, textAlign: "center" },
-  timer: { fontSize: 12, marginBottom: 10, textAlign: "center", color: "black" , backgroundColor:'#ffc3c3',
-    width:30,
-    height:30,borderRadius:20, 
-    paddingTop:8,
-    position:'absolute',
-    right:50,
-    top:6
-   
-   },
+  timer: {
+    fontSize: 12,
+    marginBottom: 10,
+    textAlign: "center",
+    color: "black",
+    backgroundColor: "#ffc3c3",
+    width: 30,
+    height: 30,
+    borderRadius: 20,
+    paddingTop: 8,
+    position: "absolute",
+    right: 50,
+    top: 6,
+  },
 
   navButton: {
     backgroundColor: "#007AFF",
-    borderColor:'blueviolet',
-    borderWidth:1,
+    borderColor: "blueviolet",
+    borderWidth: 1,
 
     borderRadius: 90,
     width: 56,
-    height:56,
-    display:'flex',
-    alignItems:'center',
-    flexDirection:"column",
-    justifyContent:'center',
+    height: 56,
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    justifyContent: "center",
     alignItems: "center",
   },
   navButtonText: {
