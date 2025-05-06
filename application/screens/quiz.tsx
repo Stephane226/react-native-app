@@ -23,7 +23,7 @@ import Entypo from '@expo/vector-icons/Entypo';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 export default function Quiz() {
-  const QUESTION_TIME = 300;
+  const QUESTION_TIME = 10;
   const TOTAL_TIME = 1000;
 
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
@@ -48,16 +48,39 @@ export default function Quiz() {
 
     setQuestionTimer(QUESTION_TIME);
 
+  
+
+
     questionInterval.current = setInterval(() => {
       setQuestionTimer((prev) => {
         if (prev <= 1) {
           clearInterval(questionInterval.current!);
-          handleNext(null);
+    
+          const updatedAnswers = [...answers];
+          updatedAnswers[currentIndex] = null;
+          setAnswers(updatedAnswers);
+    
+          setSelectedOption(null); // bu opsiyonel
+    
+          handleNext(
+            null,
+            currentIndex,
+            setCurrentIndex,
+            score,
+            setScore,
+            setShowResult,
+            saveScore,
+            questions
+          );
+    
           return QUESTION_TIME;
         }
         return prev - 1;
       });
     }, 1000);
+
+    
+
 
     return () => {
       if (questionInterval.current) clearInterval(questionInterval.current);
@@ -477,7 +500,8 @@ export default function Quiz() {
         </View>
         
       </View>
-      </View>
+      </View> 
+
     </View>
   );
 }
@@ -541,7 +565,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 20,
   },
-  button: { backgroundColor: "#007AFF", padding: 15, borderRadius: 10 },
+  button: { backgroundColor: "#007AFF", padding: 15, borderRadius: 10, marginHorizontal:30 },
   buttonText: { color: "white", fontSize: 18, textAlign: "center" },
   question: { fontSize: 20, marginBottom: 20, textAlign: "left" , paddingHorizontal:15},
   option: {
