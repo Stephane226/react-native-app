@@ -22,6 +22,8 @@ import { Feather } from "@expo/vector-icons";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Entypo from "@expo/vector-icons/Entypo";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import Octicons from "@expo/vector-icons/Octicons";
 
 export default function Quiz() {
   const QUESTION_TIME = 60;
@@ -351,76 +353,120 @@ export default function Quiz() {
         </View>
 
         <View style={styles.questionsList}>
-        {currentQuestion.options.map((opt, idx) => {
-  const selected = answers[currentIndex];
-  const isAnswered = selected !== null;
-  const isSelected = selected === opt;
-  const isCorrectAnswer = currentQuestion.answer === opt;
-  const isUserCorrect = isAnswered && isSelected && isCorrectAnswer;
-  const isUserWrong = isAnswered && isSelected && !isCorrectAnswer;
+          {currentQuestion.options.map((opt, idx) => {
+            const selected = answers[currentIndex];
+            const isAnswered = selected !== null;
+            const isSelected = selected === opt;
+            const isCorrectAnswer = currentQuestion.answer === opt;
+            const isUserCorrect = isAnswered && isSelected && isCorrectAnswer;
+            const isUserWrong = isAnswered && isSelected && !isCorrectAnswer;
 
-  return (
-    <TouchableOpacity
-      key={idx}
-      style={[
-        styles.option,
-        isAnswered &&
-          ((isSelected && isCorrectAnswer) || isCorrectAnswer) && {
-            borderColor: "green",
-            borderWidth: 2,
-          },
-        isAnswered && isSelected && !isCorrectAnswer && {
-          borderColor: "red",
-          borderWidth: 2,
-        },
-      ]}
-      disabled={isAnswered}
-      onPress={() => {
-        setSelectedOption(opt);
-        const newAnswers = [...answers];
-        newAnswers[currentIndex] = opt;
-        setAnswers(newAnswers);
-      }}
-    >
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
-        <View
-          style={[
-            styles.optionSelect,
-            isAnswered &&
-              ((isSelected && isCorrectAnswer) || isCorrectAnswer) && {
-                backgroundColor: "green",
-              },
-            isAnswered && isSelected && !isCorrectAnswer && {
-              backgroundColor: "red",
-            },
-          ]}
-        >
-          <Text
-            style={[
-              styles.optionSelectNum,
-              isAnswered &&
-                (isSelected || isCorrectAnswer) && {
-                  color: "white",
-                },
-            ]}
-          >
-            A
-          </Text>
-        </View>
+            return (
+              <TouchableOpacity
+                key={idx}
+                style={[
+                  styles.option,
+                  isAnswered &&
+                    ((isSelected && isCorrectAnswer) || isCorrectAnswer) && {
+                      borderColor: "green",
+                      backgroundColor: "#f0f9ee",
+                      borderWidth: 1,
+                    },
+                  isAnswered &&
+                    isSelected &&
+                    !isCorrectAnswer && {
+                      borderColor: "red",
+                      backgroundColor: "#fde9ea",
+                      borderWidth: 1,
+                    },
+                ]}
+                disabled={isAnswered}
+                onPress={() => {
+                  setSelectedOption(opt);
+                  const newAnswers = [...answers];
+                  newAnswers[currentIndex] = opt;
+                  setAnswers(newAnswers);
+                }}
+              >
+                <View style={{ flexDirection: "row", alignItems: "center" ,justifyContent:'space-between' , display:'flex', width:'100%'}}>
+                <View style={{
+                  display:'flex',
+                  flexDirection:'row',
+                  alignItems : 'center'
+                }}> 
+                  <View
+                    style={[
+                      styles.optionSelect,
+                      isAnswered &&
+                        ((isSelected && isCorrectAnswer) ||
+                          isCorrectAnswer) && {
+                          backgroundColor: "green",
+                        },
+                      isAnswered &&
+                        isSelected &&
+                        !isCorrectAnswer && {
+                          backgroundColor: "red",
+                        },
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.optionSelectNum,
+                        isAnswered &&
+                          (isSelected || isCorrectAnswer) && {
+                            color: "white",
+                          },
+                      ]}
+                    >
+                      A
+                    </Text>
+                  </View>
 
-        <Text
-          style={[
-            styles.optionText,
-            isAnswered && !isSelected && !isCorrectAnswer && { color: "gray" },
-          ]}
-        >
-          {opt}
-        </Text>
-      </View>
-    </TouchableOpacity>
-  );
-})}
+                  <Text
+                    style={[
+                      styles.optionText,
+                      isAnswered &&
+                        !isSelected &&
+                        !isCorrectAnswer && { color: "gray" },
+                    ]}
+                  >
+                    {opt}
+                  </Text>
+                  </View> 
 
+
+
+                <View> 
+
+                  {isAnswered &&
+                    isSelected != isCorrectAnswer &&
+                    isCorrectAnswer && (
+                      <FontAwesome
+                        name="check-circle"
+                        size={18}
+                        color="green"
+                      />
+                    )}
+
+                  {isAnswered &&
+                    isSelected &&
+                    isSelected == isCorrectAnswer && (
+                      <FontAwesome
+                        name="check-circle"
+                        size={18}
+                        color="green"
+                      />
+                    )}
+                  {isAnswered && isSelected && !isCorrectAnswer && (
+                    <Octicons name="x-circle-fill" size={18} color="red" />
+                  )}
+                     </View>
+
+                     
+                </View>
+              </TouchableOpacity>
+            );
+          })}
         </View>
       </View>
 
@@ -586,12 +632,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   option: {
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "white",
     padding: 8,
     borderRadius: 10,
     marginBottom: 10,
     borderWidth: 1,
     borderColor: "#ccc",
+
+    alignItems: "space-between" ,
+    display:'flex',
+    flexDirection : 'row'
+
+
   },
   optionText: { fontSize: 14, textAlign: "center" },
   progress: { fontSize: 16, marginBottom: 10, textAlign: "center" },
