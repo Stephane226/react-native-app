@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 4,
     gap: 2,
-    marginTop:100
+    marginTop:30
   },
   button: {
     width: Dimensions.get("window").width / 2 - 16,

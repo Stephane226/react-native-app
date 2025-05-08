@@ -27,6 +27,8 @@ import Octicons from "@expo/vector-icons/Octicons";
 
 import Menu from '../components/menu'
 import Carousel from '../components/carousel'
+import LeadersRow from '../components/leadersRow'
+import SearchCountry from '../components/searchCountry'
 
 export default function Quiz() {
 
@@ -34,6 +36,8 @@ export default function Quiz() {
    <View style={{
     paddingTop:50
    }}>
+    <SearchCountry />
+    <LeadersRow/>
    <Carousel/>
    <Menu/>
    </View>

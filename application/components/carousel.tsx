@@ -13,13 +13,13 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 const carouselItems = [
   {
     id: 1,
-    title: "Culture Africaine",
-    description: "Explorez les danses, tenues, traditions et rituels.",
+    title: "Burkina Faso",
+    description: "La patrie ou la mort nous vaincrons",
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Burkina_Faso.svg/1200px-Flag_of_Burkina_Faso.svg.png",
   },
   {
     id: 2,
-    title: "Héros Nationaux",
+    title: "Marocco",
     description: "Découvrez les grands leaders africains du passé.",
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/1280px-Flag_of_Morocco.svg.png",
   },
@@ -31,7 +31,7 @@ const carouselItems = [
   },
 ];
 
-const ITEM_WIDTH = Dimensions.get("window").width * 0.7;
+const ITEM_WIDTH = Dimensions.get("window").width * 0.8;
 
 export default function Carousel() {
   return (
@@ -66,16 +66,18 @@ const styles = StyleSheet.create({
   card: {
     width: ITEM_WIDTH,
     height: 140,
-    backgroundColor: "#fff",
-    borderRadius: 16,
+    backgroundColor: "#f1f1f1a6",
+    borderRadius: 8,
     flexDirection: "row",
-    marginRight: 16,
+    marginRight: 8,
     overflow: "hidden",
     elevation: 4,
   },
   image: {
     width: "40%",
     height: "100%",
+    borderRadius: 8,
+
   },
   cardContent: {
     width: "60%",
