@@ -60,7 +60,7 @@ export default function Quiz() {
           updatedAnswers[currentIndex] = null;
           setAnswers(updatedAnswers);
 
-          setSelectedOption(null); 
+          setSelectedOption(null);
 
           handleNext(
             null,
@@ -106,9 +106,7 @@ export default function Quiz() {
 
   useEffect(() => {
     setSelectedOption(answers[currentIndex]);
-
   }, [currentIndex]);
-
 
   if (currentIndex === -1) {
     return (
@@ -155,7 +153,7 @@ export default function Quiz() {
             }}
           >
             {" "}
-           Patrie.BF
+            Patrie.BF
           </Text>
         </View>
 
@@ -204,7 +202,6 @@ export default function Quiz() {
           width: "60%",
           marginLeft: "auto",
           marginRight: "auto",
-         
         }}
       >
         <View
@@ -326,90 +323,105 @@ export default function Quiz() {
         <Text style={styles.timer}>{questionTimer}s</Text>
       </View>
 
-      <View style={{
-        backgroundColor:'white',
-        borderTopLeftRadius:20,
-        borderTopRightRadius : 20,
-        paddingTop:10,
-        marginLeft:12,
-        marginRight:12
-      }}>
+      <View
+        style={{
+          backgroundColor: "white",
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
+          paddingTop: 10,
+          marginLeft: 12,
+          marginRight: 12,
+        }}
+      >
+        <Text style={styles.question}>{currentQuestion.question}</Text>
 
-
-      <Text style={styles.question}>{currentQuestion.question}</Text>
-
-        <View style={{
-          paddingHorizontal:15,
-          marginBottom:20
-        }}>
-
-      <Image
-      source={{  uri : 'https://thestar.co.ke/wp-content/uploads/2025/05/ibrahim_traore_burkina-faso-leader-.jpg'}} 
-        style={styles.image}
-        resizeMode="cover"
-      />
+        <View
+          style={{
+            paddingHorizontal: 15,
+            marginBottom: 20,
+          }}
+        >
+          <Image
+            source={{
+              uri: "https://thestar.co.ke/wp-content/uploads/2025/05/ibrahim_traore_burkina-faso-leader-.jpg",
+            }}
+            style={styles.image}
+            resizeMode="cover"
+          />
         </View>
 
-      <View style={styles.questionsList}>
-        {currentQuestion.options.map((opt, idx) => (
-          <TouchableOpacity
-            key={idx}
-            style={[
-              styles.option,
-              selectedOption === opt && {
-                borderColor: "green",
-                borderWidth: 2,
+        <View style={styles.questionsList}>
+        {currentQuestion.options.map((opt, idx) => {
+  const selected = answers[currentIndex];
+  const isAnswered = selected !== null;
+  const isSelected = selected === opt;
+  const isCorrectAnswer = currentQuestion.answer === opt;
+  const isUserCorrect = isAnswered && isSelected && isCorrectAnswer;
+  const isUserWrong = isAnswered && isSelected && !isCorrectAnswer;
+
+  return (
+    <TouchableOpacity
+      key={idx}
+      style={[
+        styles.option,
+        isAnswered &&
+          ((isSelected && isCorrectAnswer) || isCorrectAnswer) && {
+            borderColor: "green",
+            borderWidth: 2,
+          },
+        isAnswered && isSelected && !isCorrectAnswer && {
+          borderColor: "red",
+          borderWidth: 2,
+        },
+      ]}
+      disabled={isAnswered}
+      onPress={() => {
+        setSelectedOption(opt);
+        const newAnswers = [...answers];
+        newAnswers[currentIndex] = opt;
+        setAnswers(newAnswers);
+      }}
+    >
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View
+          style={[
+            styles.optionSelect,
+            isAnswered &&
+              ((isSelected && isCorrectAnswer) || isCorrectAnswer) && {
+                backgroundColor: "green",
               },
-
-      
-
-              
-
-
-
+            isAnswered && isSelected && !isCorrectAnswer && {
+              backgroundColor: "red",
+            },
+          ]}
+        >
+          <Text
+            style={[
+              styles.optionSelectNum,
+              isAnswered &&
+                (isSelected || isCorrectAnswer) && {
+                  color: "white",
+                },
             ]}
-            disabled={answers[currentIndex] !== null}
-            onPress={() => setSelectedOption(opt)}
           >
-            <View
-              style={{
-                display: "flex",
-                justifyContent: "flex-start",
-                flexDirection: "row",
-                alignItems: "center",
-              }}
-            >
-              <View
-                style={[
-                  styles.optionSelect,
-                  selectedOption === opt && { backgroundColor: "green" },
-                ]}
-              >
-                <Text
-                  style={[
-                    styles.optionSelectNum,
-                    ,
-                    selectedOption === opt && { color: "white" },
-                  ]}
-                >
-                  {" "}
-                  A{" "}
-                </Text>
-              </View>
+            A
+          </Text>
+        </View>
 
-              <Text
-                style={[
-                  styles.optionText,
-                  answers[currentIndex] !== null && { color: "gray" },
-                ]}
-              >
-                {opt}
-              </Text>
-            </View>
-          </TouchableOpacity>
-        ))}
+        <Text
+          style={[
+            styles.optionText,
+            isAnswered && !isSelected && !isCorrectAnswer && { color: "gray" },
+          ]}
+        >
+          {opt}
+        </Text>
       </View>
+    </TouchableOpacity>
+  );
+})}
 
+        </View>
       </View>
 
       <View
@@ -503,13 +515,13 @@ export default function Quiz() {
 
 const styles = StyleSheet.create({
   container: {
-   paddingTop:50,
+    paddingTop: 50,
     flex: 1,
     justifyContent: "top",
     backgroundColor: "#d9d9d947",
   },
   image: {
-    width: '100%',
+    width: "100%",
     height: 170,
     borderRadius: 10,
   },
@@ -580,7 +592,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderWidth: 1,
     borderColor: "#ccc",
-   
   },
   optionText: { fontSize: 14, textAlign: "center" },
   progress: { fontSize: 16, marginBottom: 10, textAlign: "center" },
