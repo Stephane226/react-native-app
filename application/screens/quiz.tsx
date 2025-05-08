@@ -158,6 +158,9 @@ export default function Quiz() {
             Patrie.BF
           </Text>
         </View>
+    
+
+ 
 
         <View
           style={{
@@ -190,6 +193,29 @@ export default function Quiz() {
           </TouchableOpacity>
         </View>
       </View>
+
+
+      <View style={{
+        marginHorizontal : 12,
+        borderColor:'gray',
+        borderWidth : 1,
+        height:20,
+        borderRadius : 20,
+      }}>
+
+
+      <View style={{
+        
+       backgroundColor : 'red',
+       width: '40%',
+       height:'100%',
+       borderRadius : 20,
+      }}></View>
+
+
+      </View>
+
+
 
       <View
         style={{
