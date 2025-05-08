@@ -199,7 +199,7 @@ export default function Quiz() {
         marginHorizontal : 12,
         borderColor:'gray',
         borderWidth : 1,
-        height:20,
+        height:10,
         borderRadius : 20,
       }}>
 
@@ -266,16 +266,7 @@ export default function Quiz() {
         </View>
       </View>
 
-      <View
-        style={{
-          flexDirection: "row",
-          marginBottom: 25,
-        }}
-      >
-        {[...Array(40)].map((_, i) => (
-          <View key={i} style={styles.dash} />
-        ))}
-      </View>
+   
 
       <View
         style={{
@@ -514,6 +505,8 @@ export default function Quiz() {
           {[...Array(40)].map((_, i) => (
             <View key={i} style={styles.dash} />
           ))}
+
+          
         </View>
 
         <View
@@ -598,7 +591,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   indexQuest: {
-    backgroundColor: "red",
+    backgroundColor: "black",
     padding: 12,
     borderRadius: 7,
   },
