@@ -5,13 +5,14 @@ import * as ScreenOrientation from "expo-screen-orientation";
 
 //importing screens
 import Quiz from './screens/quiz.tsx'
+import Home from './screens/home.tsx'
 
 
 export default function App() {
 
 
   return (
-     <Quiz />
+     <Home />
   );
 }
 
