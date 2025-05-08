@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Alert,
   ViewStyle,
+  Image,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as ScreenOrientation from "expo-screen-orientation";
@@ -105,7 +106,9 @@ export default function Quiz() {
 
   useEffect(() => {
     setSelectedOption(answers[currentIndex]);
+
   }, [currentIndex]);
+
 
   if (currentIndex === -1) {
     return (
@@ -152,7 +155,7 @@ export default function Quiz() {
             }}
           >
             {" "}
-            Linear Equations.{" "}
+           Patrie.BF
           </Text>
         </View>
 
@@ -193,7 +196,7 @@ export default function Quiz() {
           height: 45,
           marginHorizontal: 15,
           marginBottom: 20,
-          display: "flex",
+          display: "none", //was flex
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
@@ -201,6 +204,7 @@ export default function Quiz() {
           width: "60%",
           marginLeft: "auto",
           marginRight: "auto",
+         
         }}
       >
         <View
@@ -322,7 +326,29 @@ export default function Quiz() {
         <Text style={styles.timer}>{questionTimer}s</Text>
       </View>
 
+      <View style={{
+        backgroundColor:'white',
+        borderTopLeftRadius:20,
+        borderTopRightRadius : 20,
+        paddingTop:10,
+        marginLeft:12,
+        marginRight:12
+      }}>
+
+
       <Text style={styles.question}>{currentQuestion.question}</Text>
+
+        <View style={{
+          paddingHorizontal:15,
+          marginBottom:20
+        }}>
+
+      <Image
+      source={{  uri : 'https://thestar.co.ke/wp-content/uploads/2025/05/ibrahim_traore_burkina-faso-leader-.jpg'}} 
+        style={styles.image}
+        resizeMode="cover"
+      />
+        </View>
 
       <View style={styles.questionsList}>
         {currentQuestion.options.map((opt, idx) => (
@@ -331,9 +357,16 @@ export default function Quiz() {
             style={[
               styles.option,
               selectedOption === opt && {
-                borderColor: "#007AFF",
+                borderColor: "green",
                 borderWidth: 2,
               },
+
+      
+
+              
+
+
+
             ]}
             disabled={answers[currentIndex] !== null}
             onPress={() => setSelectedOption(opt)}
@@ -349,7 +382,7 @@ export default function Quiz() {
               <View
                 style={[
                   styles.optionSelect,
-                  selectedOption === opt && { backgroundColor: "blue" },
+                  selectedOption === opt && { backgroundColor: "green" },
                 ]}
               >
                 <Text
@@ -375,6 +408,8 @@ export default function Quiz() {
             </View>
           </TouchableOpacity>
         ))}
+      </View>
+
       </View>
 
       <View
@@ -437,7 +472,7 @@ export default function Quiz() {
             </TouchableOpacity>
 
             <TouchableOpacity
-              style={[styles.navButton, { marginLeft: 10 }]}
+              style={[styles.navButton, { marginLeft: 5 }]}
               onPress={() => {
                 const updatedAnswers = [...answers];
                 updatedAnswers[currentIndex] = selectedOption;
@@ -468,13 +503,18 @@ export default function Quiz() {
 
 const styles = StyleSheet.create({
   container: {
-   marginTop:50,
+   paddingTop:50,
     flex: 1,
     justifyContent: "top",
-    backgroundColor: "#fff",
+    backgroundColor: "#d9d9d947",
+  },
+  image: {
+    width: '100%',
+    height: 170,
+    borderRadius: 10,
   },
   indexQuest: {
-    backgroundColor: "black",
+    backgroundColor: "red",
     padding: 12,
     borderRadius: 7,
   },
@@ -498,9 +538,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   dash: {
-    height: 4,
-    width: 8,
-    backgroundColor: "grey",
+    height: 1,
+    width: 7,
+    backgroundColor: "green",
     marginRight: 3,
   },
 
@@ -528,20 +568,21 @@ const styles = StyleSheet.create({
   },
   buttonText: { color: "white", fontSize: 18, textAlign: "center" },
   question: {
-    fontSize: 20,
+    fontSize: 16,
     marginBottom: 20,
     textAlign: "left",
     paddingHorizontal: 15,
   },
   option: {
     backgroundColor: "#f2f2f2",
-    padding: 15,
+    padding: 8,
     borderRadius: 10,
     marginBottom: 10,
     borderWidth: 1,
     borderColor: "#ccc",
+   
   },
-  optionText: { fontSize: 16, textAlign: "center" },
+  optionText: { fontSize: 14, textAlign: "center" },
   progress: { fontSize: 16, marginBottom: 10, textAlign: "center" },
   timer: {
     fontSize: 12,
@@ -559,13 +600,13 @@ const styles = StyleSheet.create({
   },
 
   navButton: {
-    backgroundColor: "#007AFF",
-    borderColor: "blueviolet",
+    backgroundColor: "green",
+    borderColor: "white",
     borderWidth: 1,
 
     borderRadius: 90,
-    width: 56,
-    height: 56,
+    width: 45,
+    height: 45,
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
@@ -573,7 +614,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   navButtonText: {
-    color: "white",
+    color: "yellow",
     fontSize: 16,
   },
 });
