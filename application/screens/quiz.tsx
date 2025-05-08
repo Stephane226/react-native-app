@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Alert,
   ViewStyle,
+  Image,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as ScreenOrientation from "expo-screen-orientation";
@@ -21,6 +22,8 @@ import { Feather } from "@expo/vector-icons";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Entypo from "@expo/vector-icons/Entypo";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import Octicons from "@expo/vector-icons/Octicons";
 
 export default function Quiz() {
   const QUESTION_TIME = 60;
@@ -59,7 +62,7 @@ export default function Quiz() {
           updatedAnswers[currentIndex] = null;
           setAnswers(updatedAnswers);
 
-          setSelectedOption(null); 
+          setSelectedOption(null);
 
           handleNext(
             null,
@@ -152,7 +155,7 @@ export default function Quiz() {
             }}
           >
             {" "}
-            Linear Equations.{" "}
+            Patrie.BF
           </Text>
         </View>
 
@@ -193,7 +196,7 @@ export default function Quiz() {
           height: 45,
           marginHorizontal: 15,
           marginBottom: 20,
-          display: "flex",
+          display: "none", //was flex
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
@@ -322,59 +325,149 @@ export default function Quiz() {
         <Text style={styles.timer}>{questionTimer}s</Text>
       </View>
 
-      <Text style={styles.question}>{currentQuestion.question}</Text>
+      <View
+        style={{
+          backgroundColor: "white",
+          borderTopLeftRadius: 20,
+          borderTopRightRadius: 20,
+          paddingTop: 10,
+          marginLeft: 12,
+          marginRight: 12,
+        }}
+      >
+        <Text style={styles.question}>{currentQuestion.question}</Text>
 
-      <View style={styles.questionsList}>
-        {currentQuestion.options.map((opt, idx) => (
-          <TouchableOpacity
-            key={idx}
-            style={[
-              styles.option,
-              selectedOption === opt && {
-                borderColor: "#007AFF",
-                borderWidth: 2,
-              },
-            ]}
-            disabled={answers[currentIndex] !== null}
-            onPress={() => setSelectedOption(opt)}
-          >
-            <View
-              style={{
-                display: "flex",
-                justifyContent: "flex-start",
-                flexDirection: "row",
-                alignItems: "center",
-              }}
-            >
-              <View
-                style={[
-                  styles.optionSelect,
-                  selectedOption === opt && { backgroundColor: "blue" },
-                ]}
-              >
-                <Text
-                  style={[
-                    styles.optionSelectNum,
-                    ,
-                    selectedOption === opt && { color: "white" },
-                  ]}
-                >
-                  {" "}
-                  A{" "}
-                </Text>
-              </View>
+        <View
+          style={{
+            paddingHorizontal: 15,
+            marginBottom: 20,
+          }}
+        >
+          <Image
+            source={{
+              uri: "https://thestar.co.ke/wp-content/uploads/2025/05/ibrahim_traore_burkina-faso-leader-.jpg",
+            }}
+            style={styles.image}
+            resizeMode="cover"
+          />
+        </View>
 
-              <Text
+        <View style={styles.questionsList}>
+          {currentQuestion.options.map((opt, idx) => {
+            const selected = answers[currentIndex];
+            const isAnswered = selected !== null;
+            const isSelected = selected === opt;
+            const isCorrectAnswer = currentQuestion.answer === opt;
+            const isUserCorrect = isAnswered && isSelected && isCorrectAnswer;
+            const isUserWrong = isAnswered && isSelected && !isCorrectAnswer;
+
+            return (
+              <TouchableOpacity
+                key={idx}
                 style={[
-                  styles.optionText,
-                  answers[currentIndex] !== null && { color: "gray" },
+                  styles.option,
+                  isAnswered &&
+                    ((isSelected && isCorrectAnswer) || isCorrectAnswer) && {
+                      borderColor: "green",
+                      backgroundColor: "#f0f9ee",
+                      borderWidth: 1,
+                    },
+                  isAnswered &&
+                    isSelected &&
+                    !isCorrectAnswer && {
+                      borderColor: "red",
+                      backgroundColor: "#fde9ea",
+                      borderWidth: 1,
+                    },
                 ]}
+                disabled={isAnswered}
+                onPress={() => {
+                  setSelectedOption(opt);
+                  const newAnswers = [...answers];
+                  newAnswers[currentIndex] = opt;
+                  setAnswers(newAnswers);
+                }}
               >
-                {opt}
-              </Text>
-            </View>
-          </TouchableOpacity>
-        ))}
+                <View style={{ flexDirection: "row", alignItems: "center" ,justifyContent:'space-between' , display:'flex', width:'100%'}}>
+                <View style={{
+                  display:'flex',
+                  flexDirection:'row',
+                  alignItems : 'center'
+                }}> 
+                  <View
+                    style={[
+                      styles.optionSelect,
+                      isAnswered &&
+                        ((isSelected && isCorrectAnswer) ||
+                          isCorrectAnswer) && {
+                          backgroundColor: "green",
+                        },
+                      isAnswered &&
+                        isSelected &&
+                        !isCorrectAnswer && {
+                          backgroundColor: "red",
+                        },
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.optionSelectNum,
+                        isAnswered &&
+                          (isSelected || isCorrectAnswer) && {
+                            color: "white",
+                          },
+                      ]}
+                    >
+                      A
+                    </Text>
+                  </View>
+
+                  <Text
+                    style={[
+                      styles.optionText,
+                      isAnswered &&
+                        !isSelected &&
+                        !isCorrectAnswer && { color: "gray" },
+                    ]}
+                  >
+                    {opt}
+                  </Text>
+                  </View> 
+
+
+
+                <View> 
+
+                  {isAnswered &&
+                    isSelected != isCorrectAnswer &&
+                    isCorrectAnswer && (
+                      <FontAwesome
+                        name="check-circle"
+                        size={18}
+                        color="green"
+                      />
+                    )}
+
+                  {isAnswered &&
+                    isSelected &&
+                    isSelected == isCorrectAnswer && (
+                      <FontAwesome
+                        name="check-circle"
+                        size={18}
+                        color="green"
+                      />
+                    )}
+                  {isAnswered && isSelected && !isCorrectAnswer && (
+                    <Octicons name="x-circle-fill" size={18} color="red" />
+                  )}
+                     </View>
+
+                     
+                </View>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
       </View>
 
       <View
@@ -437,7 +530,7 @@ export default function Quiz() {
             </TouchableOpacity>
 
             <TouchableOpacity
-              style={[styles.navButton, { marginLeft: 10 }]}
+              style={[styles.navButton, { marginLeft: 5 }]}
               onPress={() => {
                 const updatedAnswers = [...answers];
                 updatedAnswers[currentIndex] = selectedOption;
@@ -468,12 +561,18 @@ export default function Quiz() {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 50,
     flex: 1,
-    justifyContent: "center",
-    backgroundColor: "#fff",
+    justifyContent: "top",
+    backgroundColor: "#d9d9d947",
+  },
+  image: {
+    width: "100%",
+    height: 170,
+    borderRadius: 10,
   },
   indexQuest: {
-    backgroundColor: "black",
+    backgroundColor: "red",
     padding: 12,
     borderRadius: 7,
   },
@@ -483,7 +582,7 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     width: 30,
     height: 30,
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 20,
     textAlign: "center",
     alignItems: "center",
@@ -494,12 +593,12 @@ const styles = StyleSheet.create({
   },
 
   optionSelectNum: {
-    fontSize: 18,
+    fontSize: 14,
   },
   dash: {
-    height: 4,
-    width: 8,
-    backgroundColor: "grey",
+    height: 1,
+    width: 7,
+    backgroundColor: "green",
     marginRight: 3,
   },
 
@@ -527,20 +626,26 @@ const styles = StyleSheet.create({
   },
   buttonText: { color: "white", fontSize: 18, textAlign: "center" },
   question: {
-    fontSize: 20,
+    fontSize: 16,
     marginBottom: 20,
     textAlign: "left",
     paddingHorizontal: 15,
   },
   option: {
-    backgroundColor: "#f2f2f2",
-    padding: 15,
+    backgroundColor: "white",
+    padding: 8,
     borderRadius: 10,
     marginBottom: 10,
     borderWidth: 1,
     borderColor: "#ccc",
+
+    alignItems: "space-between" ,
+    display:'flex',
+    flexDirection : 'row'
+
+
   },
-  optionText: { fontSize: 16, textAlign: "center" },
+  optionText: { fontSize: 14, textAlign: "center" },
   progress: { fontSize: 16, marginBottom: 10, textAlign: "center" },
   timer: {
     fontSize: 12,
@@ -558,13 +663,13 @@ const styles = StyleSheet.create({
   },
 
   navButton: {
-    backgroundColor: "#007AFF",
-    borderColor: "blueviolet",
+    backgroundColor: "green",
+    borderColor: "white",
     borderWidth: 1,
 
     borderRadius: 90,
-    width: 56,
-    height: 56,
+    width: 45,
+    height: 45,
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
@@ -572,7 +677,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   navButtonText: {
-    color: "white",
+    color: "yellow",
     fontSize: 16,
   },
 });

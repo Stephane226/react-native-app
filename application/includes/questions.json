@@ -1,42 +1,62 @@
 [
- {
-   "id": 6,
-   "question": "Which language is primarily used for web page styling?",
-   "options": ["HTML", "Python", "CSS", "Java"],
-   "answer": "CSS"
- },
- {
-   "id": 7,
-   "question": "What does HTML stand for?",
-   "options": [
-     "Hyper Trainer Marking Language",
-     "Hyper Text Markup Language",
-     "High Text Machine Language",
-     "Hyper Text Markdown Language"
-   ],
-   "answer": "Hyper Text Markup Language"
- },
- {
-   "id": 8,
-   "question": "Which of the following is a programming language?",
-   "options": ["HTTP", "CPU", "JavaScript", "RAM"],
-   "answer": "JavaScript"
- },
- { 
-   "id": 9,
-   "question": "Which symbol is used for comments in JavaScript?",
-   "options": ["//", "**", "##", "%%"],
-   "answer": "//"
- },
- {
-   "id": 10,
-   "question": "What does a loop do in programming?",
-   "options": [
-     "Saves data",
-     "Stops the program",
-     "Repeats a set of instructions",
-     "Deletes files"
-   ],
-   "answer": "Repeats a set of instructions"
- }
+  {
+    "id": 1,
+    "question": "Quelle est la capitale du Burkina Faso ?",
+    "options": ["Ouagadougou", "Bobo-Dioulasso", "Koudougou", "Banfora"],
+    "answer": "Ouagadougou"
+  },
+  {
+    "id": 2,
+    "question": "Quel est l'ancien nom du Burkina Faso avant 1984 ?",
+    "options": ["Haute-Volta", "Côte d'Ivoire", "Soudan Français", "Dahomey"],
+    "answer": "Haute-Volta"
+  },
+  {
+    "id": 3,
+    "question": "Quel est le plat traditionnel populaire au Burkina Faso ?",
+    "options": ["Tô", "Fufu", "Ndolé", "Attiéké"],
+    "answer": "Tô"
+  },
+  {
+    "id": 4,
+    "question": "Quel est le point culminant du Burkina Faso ?",
+    "options": ["Mont Ténakourou", "Mont Kilimandjaro", "Mont Kenya", "Mont Nimba"],
+    "answer": "Mont Ténakourou"
+  },
+  {
+    "id": 5,
+    "question": "Quelle est la monnaie utilisée au Burkina Faso ?",
+    "options": ["Franc CFA", "Naira", "Euro", "Dollar"],
+    "answer": "Franc CFA"
+  },
+  {
+    "id": 6,
+    "question": "Quel est le nom de l'aéroport international de Ouagadougou ?",
+    "options": ["Aéroport international de Ouagadougou", "Aéroport international de Bobo-Dioulasso", "Aéroport international de Niangoloko", "Aéroport international de Banfora"],
+    "answer": "Aéroport international de Ouagadougou"
+  },
+  {
+    "id": 7,
+    "question": "Quel est le nom du président du Burkina Faso en 2025 ?",
+    "options": ["Ibrahim Traoré", "Roch Marc Christian Kaboré", "Blaise Compaoré", "Thomas Sankara"],
+    "answer": "Ibrahim Traoré"
+  },
+  {
+    "id": 8,
+    "question": "Quelle est la date de l'indépendance du Burkina Faso ?",
+    "options": ["5 août 1960", "4 août 1983", "15 mars 1957", "1er janvier 1961"],
+    "answer": "5 août 1960"
+  },
+  {
+    "id": 9,
+    "question": "Quel est le nom du festival de cinéma biennal organisé à Ouagadougou ?",
+    "options": ["FESPACO", "Cannes Afrique", "Ouaga Film Fest", "PanAfricain du Cinéma"],
+    "answer": "FESPACO"
+  },
+  {
+    "id": 10,
+    "question": "Quel est le nom du célèbre révolutionnaire burkinabè assassiné en 1987 ?",
+    "options": ["Thomas Sankara", "Blaise Compaoré", "Maurice Yaméogo", "Lamizana Sangoulé"],
+    "answer": "Thomas Sankara"
+  }
 ]
