@@ -582,7 +582,7 @@ const styles = StyleSheet.create({
     borderColor: "gray",
     width: 30,
     height: 30,
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 20,
     textAlign: "center",
     alignItems: "center",
@@ -593,7 +593,7 @@ const styles = StyleSheet.create({
   },
 
   optionSelectNum: {
-    fontSize: 18,
+    fontSize: 14,
   },
   dash: {
     height: 1,
