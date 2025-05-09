@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: ITEM_WIDTH,
-    height: 140,
+    height: 160,
     backgroundColor: "#f1f1f1a6",
     borderRadius: 8,
     flexDirection: "row",

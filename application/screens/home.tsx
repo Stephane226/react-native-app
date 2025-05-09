@@ -29,17 +29,21 @@ import Menu from '../components/menu'
 import Carousel from '../components/carousel'
 import LeadersRow from '../components/leadersRow'
 import SearchCountry from '../components/searchCountry'
+import BottomNav from '../components/bottomNav'
 
 export default function Quiz() {
 
  return(
    <View style={{
-    paddingTop:50
+    paddingTop:50,
+   paddingBottom:10,
+    flex:1
    }}>
     <SearchCountry />
     <LeadersRow/>
    <Carousel/>
    <Menu/>
+   <BottomNav/>
    </View>
  )
 }

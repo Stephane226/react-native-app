@@ -31,11 +31,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 4,
     gap: 2,
-    marginTop:30
+    marginTop:10,
+    marginBottom:50
   },
   button: {
-    width: Dimensions.get("window").width / 2 - 16,
-    height: 120,
+    width: Dimensions.get("window").width / 3 - 10,
+    height: 100,
     margin: 2,
     borderRadius: 12,
     justifyContent: "center",
