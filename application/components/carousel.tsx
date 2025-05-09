@@ -31,7 +31,7 @@ const carouselItems = [
   },
 ];
 
-const ITEM_WIDTH = Dimensions.get("window").width * 0.8;
+const ITEM_WIDTH = Dimensions.get("window").width * 0.9;
 
 export default function Carousel() {
   return (

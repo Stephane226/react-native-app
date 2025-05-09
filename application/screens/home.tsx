@@ -1,49 +1,20 @@
-import React, { useState, useEffect, useRef } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Alert,
-  ViewStyle,
-  Image,
-} from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import * as ScreenOrientation from "expo-screen-orientation";
+// screens/Home.tsx
+import React from "react";
+import { Text, View } from "react-native";
+import GeneralLayout from "../layouts/generalLayout";
 
-// importing quiz JSON
-import questions from "../includes/questions.json";
+import SearchCountry from "../components/searchCountry";
+import LeadersRow from "../components/leadersRow";
+import Carousel from "../components/carousel";
+import Menu from "../components/menu";
 
-// immport functions
-import { handleStart, handleNext, saveScore } from "../utils/quizHandlers";
-
-//icons
-import { Feather } from "@expo/vector-icons";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import Entypo from "@expo/vector-icons/Entypo";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import Octicons from "@expo/vector-icons/Octicons";
-
-import Menu from '../components/menu'
-import Carousel from '../components/carousel'
-import LeadersRow from '../components/leadersRow'
-import SearchCountry from '../components/searchCountry'
-import BottomNav from '../components/bottomNav'
-
-export default function Quiz() {
-
- return(
-   <View style={{
-    paddingTop:50,
-   paddingBottom:10,
-    flex:1
-   }}>
-    <SearchCountry />
-    <LeadersRow/>
-   <Carousel/>
-   <Menu/>
-   <BottomNav/>
-   </View>
- )
+export default function Home() {
+  return (
+    <GeneralLayout>
+     <SearchCountry />
+      <LeadersRow />
+      <Carousel />
+      <Menu />
+    </GeneralLayout>
+  );
 }

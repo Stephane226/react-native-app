@@ -38,8 +38,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-
-    bottom: 20,
+   position:'absolute',
+    bottom: 30,
     width: width - 32,
     marginHorizontal: 16,
     paddingVertical: 9,
