@@ -1,0 +1,387 @@
+[
+ {
+   "name": "Thomas Sankara",
+   "country": "Burkina Faso",
+   "flag": "https://flagcdn.com/w320/bf.png",
+   "profile": "",
+   "description": "Thomas Sankara was a revolutionary leader who served as Burkina Faso's president from 1983 until his assassination in 1987. Nicknamed 'Africa's Che Guevara,' he implemented radical anti-imperialist policies, including land reforms, women's rights advancements, and public health campaigns. Sankara renamed the country from Upper Volta to Burkina Faso ('Land of Upright People') and famously refused foreign aid, insisting on self-reliance. His government built schools, vaccinated millions, and planted trees to combat desertification. Despite his popularity among the poor, his strict governance style alienated elites. His 1987 murder during a coup remains controversial, with many accusing France and neighboring leaders of involvement. Sankara's legacy endures as a symbol of pan-Africanism and anti-corruption.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1983–1987",
+     "Date_of_Death": "1987-10-15",
+     "Cause_of_Death": "Assassination",
+     "Birth_Date": "1949-12-21",
+     "Birth_Place": "Yako, French Upper Volta",
+     "Political_Party": "National Council for the Revolution",
+     "Military Rank": "Captain",
+     "Known_For": "Revolutionary socialism, anti-corruption",
+     "Spouse": "Mariama Sankara",
+     "Children": "2"
+   }
+ },
+ {
+   "name": "Nelson Mandela",
+   "country": "South Africa",
+   "flag": "https://flagcdn.com/w320/za.png",
+   "profile": "",
+   "description": "Nelson Mandela, South Africa's first Black president (1994–1999), is globally revered for ending apartheid through reconciliation. Imprisoned for 27 years for opposing white-minority rule, he emerged in 1990 to negotiate a peaceful transition to democracy. His presidency focused on nation-building, establishing the Truth and Reconciliation Commission to address apartheid crimes without vengeance. Mandela championed education, healthcare, and economic inclusion but struggled to redress deep racial inequalities. Awarded the Nobel Peace Prize in 1993, he became a universal symbol of forgiveness and resilience. Post-presidency, he advocated for HIV/AIDS awareness. Though criticized for compromising too much with apartheid elites, his leadership averted civil war and reshaped South Africa's identity. His clan name 'Madiba' remains synonymous with moral leadership worldwide.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1994–1999",
+     "Date_of_Death": "2013-12-05",
+     "Cause_of_Death": "Respiratory infection",
+     "Birth_Date": "1918-07-18",
+     "Birth_Place": "Mvezo, South Africa",
+     "Political_Party": "African National Congress",
+     "Known_For": "Ending apartheid, promoting reconciliation",
+     "Spouse": "Graça Machel (last spouse)",
+     "Children": "6",
+     "Nobel Prize": "1993"
+   }
+ },
+ {
+   "name": "Kwame Nkrumah",
+   "country": "Ghana",
+   "flag": "https://flagcdn.com/w320/gh.png",
+   "profile": "",
+   "description": "Kwame Nkrumah, Ghana's first prime minister and president (1957–1966), led the nation to independence from Britain. A founding pan-Africanist, he envisioned a united Africa and supported liberation movements across the continent. His government built schools, hospitals, and the Akosombo Dam to industrialize Ghana. Nkrumah's socialist policies, however, led to economic decline and authoritarianism, including one-party rule. Overthrown in a 1966 coup while visiting China, he died in exile. Despite flaws, his ideas shaped the Organization of African Unity (OAU), precursor to the AU. His famous declaration, 'Africa must unite,' and his role in decolonization cement his legacy as a visionary. Today, Nkrumah's image adorns Ghana's currency, and his mausoleum in Accra is a pilgrimage site for pan-Africanists.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1957–1966",
+     "Date_of_Death": "1972-04-27",
+     "Cause_of_Death": "Cancer",
+     "Birth_Date": "1909-09-21",
+     "Birth_Place": "Nkroful, Gold Coast",
+     "Political_Party": "Convention People's Party",
+     "Known_For": "Ghana's independence, pan-Africanism",
+     "Spouse": "Fathia Nkrumah",
+     "Children": "5",
+     "Education": "Lincoln University (USA)"
+   }
+ },
+ {
+   "name": "Patrice Lumumba",
+   "country": "Democratic Republic of the Congo",
+   "flag": "https://flagcdn.com/w320/cd.png",
+   "profile": "",
+   "description": "Patrice Lumumba, the Congo's first democratically elected prime minister (1960), symbolized Africa's anti-colonial struggle. His fiery independence-day speech denouncing Belgian oppression angered Western powers. Lumumba sought to unify the ethnically fractured Congo and nationalize its mineral wealth, alarming Cold War-era Belgium and the US. Deposed in a CIA-backed coup within months, he was captured, tortured, and executed in 1961. His assassination, orchestrated with Belgian complicity, sparked global protests. Though in power briefly, Lumumba became a martyr for African sovereignty. In 2002, Belgium admitted 'moral responsibility' for his death. His only remains—a gold-capped tooth—were repatriated in 2022. Lumumba's ideals of unity and self-determination inspire generations, though Congo's instability continues to reflect his unfulfilled vision.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1960",
+     "Date_of_Death": "1961-01-17",
+     "Cause_of_Death": "Execution",
+     "Birth_Date": "1925-07-02",
+     "Birth_Place": "Onalua, Belgian Congo",
+     "Political_Party": "Mouvement National Congolais",
+     "Known_For": "Congo's independence, anti-colonialism",
+     "Children": "5"
+   }
+ },
+ {
+   "name": "Haile Selassie I",
+   "country": "Ethiopia",
+   "flag": "https://flagcdn.com/w320/et.png",
+   "profile": "",
+   "description": "Haile Selassie I, Ethiopia's last emperor (1930–1974), ruled for 44 years, modernizing the ancient kingdom while clinging to absolute power. He abolished slavery, introduced a constitution, and resisted Mussolini's 1935 invasion, becoming a global anti-fascist icon during his exile. Post-WWII, he centralized authority and founded the Organization of African Unity (OAU) in 1963. Despite early progress, his later reign was marked by famine, corruption, and failure to address inequality. Overthrown by Marxist rebels in 1974, he died under suspicious circumstances. Revered by Rastafarians as the messiah, Selassie remains a paradox—a symbol of African dignity (his 1963 UN speech inspired Jamaica's independence) and of feudal oppression. His legacy is immortalized in reggae music and pan-African discourse.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1930–1974",
+     "Date_of_Death": "1975-08-27",
+     "Cause_of_Death": "Reportedly suffocation",
+     "Birth_Date": "1892-07-23",
+     "Birth_Place": "Ejersa Goro, Ethiopia",
+     "Title": "Emperor",
+     "Known_For": "Modernization, Rastafarian messiah",
+     "Spouse": "Menen Asfaw",
+     "Children": "6"
+   }
+ },
+ {
+   "name": "Julius Nyerere",
+   "country": "Tanzania",
+   "flag": "https://flagcdn.com/w320/tz.png",
+   "profile": "",
+   "description": "Julius Nyerere, Tanzania's founding president (1964–1985), was a philosopher-leader who promoted 'African socialism' under his Ujamaa ('familyhood') policy. Educated at Edinburgh University, he unified Zanzibar and Tanganyika into Tanzania, emphasizing Swahili as a national language to bridge ethnic divides. Nyerere's collectivized villages and state-controlled economy failed, causing poverty, but his literacy campaigns achieved an 80% literacy rate. A staunch anti-colonialist, he supported liberation movements in Southern Africa. Post-retirement, he mediated African conflicts and remained influential until his 1999 death. Criticized for economic mismanagement, Nyerere is nonetheless revered as 'Mwalimu' (teacher) for his integrity and vision of African unity. Tanzania's stability and ethnic harmony are often attributed to his leadership.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1964–1985",
+     "Date_of_Death": "1999-10-14",
+     "Cause_of_Death": "Leukemia",
+     "Birth_Date": "1922-04-13",
+     "Birth_Place": "Butiama, Tanganyika",
+     "Political_Party": "Chama Cha Mapinduzi",
+     "Known_For": "Ujamaa socialism, pan-Africanism",
+     "Spouse": "Maria Nyerere",
+     "Children": "7"
+   }
+ },
+ {
+   "name": "Samora Machel",
+   "country": "Mozambique",
+   "flag": "https://flagcdn.com/w320/mz.png",
+   "profile": "",
+   "description": "Samora Machel, Mozambique's first president (1975–1986), led the guerrilla war against Portuguese colonialism. A Marxist revolutionary, he nationalized industries and aligned with the Soviet bloc, triggering a brutal apartheid-backed insurgency (RENAMO) that destabilized Mozambique. Machel's policies improved healthcare and education but crippled the economy. His 1986 death in a mysterious plane crash (allegedly orchestrated by South Africa) cut short his later shift toward pragmatism. Despite controversies, Machel is remembered for his charisma and commitment to liberation. His widow, Graça Machel, later married Nelson Mandela, linking two iconic African legacies. Today, Mozambique's main airport and streets bear his name, though his socialist vision remains unfulfilled.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1975–1986",
+     "Date_of_Death": "1986-10-19",
+     "Cause_of_Death": "Plane crash (disputed)",
+     "Birth_Date": "1933-09-29",
+     "Birth_Place": "Chilembene, Mozambique",
+     "Political_Party": "FRELIMO",
+     "Known_For": "Anti-colonial struggle, Marxism",
+     "Spouse": "Graça Machel",
+     "Children": "4"
+   }
+ },
+ {
+   "name": "Jomo Kenyatta",
+   "country": "Kenya",
+   "flag": "https://flagcdn.com/w320/ke.png",
+   "profile": "",
+   "description": "Jomo Kenyatta, Kenya's first president (1964–1978), led the nation to independence from Britain after imprisonment for alleged Mau Mau ties. His government promoted 'Africanization' of the economy but preserved colonial-era land inequalities, enriching his Kikuyu elite. Kenyatta's pro-Western policies attracted investment but entrenched corruption and one-party rule. Despite suppressing dissent, he maintained stability in ethnically diverse Kenya. His slogan 'Harambee' ('pulling together') symbolized post-colonial unity. Kenyatta's legacy is contested: praised for avoiding civil war but criticized for cronyism. His family remains influential—his son Uhuru served as Kenya's fourth president (2013–2022). The international airport and Nairobi's central street honor his name, though his authoritarian shadow lingers in Kenyan politics.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1964–1978",
+     "Date_of_Death": "1978-08-22",
+     "Cause_of_Death": "Natural causes",
+     "Birth_Date": "1897-10-20",
+     "Birth_Place": "Ngenda, British East Africa",
+     "Political_Party": "Kenya African National Union",
+     "Known_For": "Kenya's independence, Harambee philosophy",
+     "Spouse": "Ngina Kenyatta (last wife)",
+     "Children": "8"
+   }
+ },
+ {
+   "name": "Léopold Sédar Senghor",
+   "country": "Senegal",
+   "flag": "https://flagcdn.com/w320/sn.png",
+   "profile": "",
+   "description": "Léopold Sédar Senghor, Senegal's first president (1960–1980), was a poet-philosopher who pioneered the Négritude movement celebrating African identity. Educated in France, he governed as a moderate socialist, maintaining ties with former colonizer France while promoting African culture. His presidency saw stability, but economic stagnation and drought eroded his popularity. Senghor voluntarily retired in 1980—a rarity among African leaders—and spent his final years in France writing poetry. The first African elected to the Académie Française, he framed African identity as 'the civilization of the universal.' Though criticized for elitism, his intellectual legacy endures in Senegal's arts and education. The Dakar airport and universities bear his name, honoring his dual role as statesman and poet.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1960–1980",
+     "Date_of_Death": "2001-12-20",
+     "Cause_of_Death": "Natural causes",
+     "Birth_Date": "1906-10-09",
+     "Birth_Place": "Joal, French West Africa",
+     "Political_Party": "Senegalese Progressive Union",
+     "Known_For": "Négritude philosophy, poetry",
+     "Spouse": "Colette Senghor",
+     "Children": "3"
+   }
+ },
+ {
+   "name": "Muammar Gaddafi",
+   "country": "Libya",
+   "flag": "https://flagcdn.com/w320/ly.png",
+   "profile": "",
+   "description": "Muammar Gaddafi ruled Libya for 42 years (1969–2011) after overthrowing the monarchy. His 'Third International Theory' rejected capitalism and communism, implemented through a decentralized 'Jamahiriya' system. Gaddafi nationalized oil, funding free healthcare and education, but his erratic policies and human rights abuses isolated Libya. He sponsored global terrorism (e.g., Lockerbie bombing) while positioning himself as an anti-imperialist leader. The 2011 Arab Spring uprising toppled him; he was captured and killed by rebels. Gaddafi's legacy is polarizing: some praise his welfare programs and pan-African advocacy (he bankrolled the AU), while others condemn his brutality. Libya's fragmentation post-2011 reflects both his authoritarian shadow and foreign intervention.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1969–2011",
+     "Date_of_Death": "2011-10-20",
+     "Cause_of_Death": "Killed by rebels",
+     "Birth_Date": "1942-06-07",
+     "Birth_Place": "Qasr Abu Hadi, Libya",
+     "Political_Party": "None (Jamahiriya system)",
+     "Known_For": "Authoritarian rule, pan-Africanism",
+     "Spouse": "Safia Farkash",
+     "Children": "8"
+   }
+ }
+,
+
+
+ {
+   "name": "Ahmed Sékou Touré",
+   "country": "Guinea",
+   "flag": "https://flagcdn.com/w320/gn.png",
+   "profile": "",
+   "description": "Ahmed Sékou Touré was Guinea's first president (1958–1984) and a fierce anti-colonialist who led the only French colony to reject the 1958 Franco-African Community, opting for immediate independence. A charismatic orator and socialist, he aligned with the Soviet bloc, nationalizing industries and suppressing dissent. His 26-year rule grew increasingly authoritarian, with thousands disappearing in concentration camps like Camp Boiro. Despite economic failures, Touré promoted African unity and supported liberation movements. His death in 1984 led to a military coup. Though reviled for brutality, he remains a symbol of defiance against colonialism, famously telling France: 'We prefer poverty in liberty to riches in slavery.'",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1958–1984",
+     "Date_of_Death": "1984-03-26",
+     "Cause_of_Death": "Heart attack (suspected poisoning)",
+     "Birth_Date": "1922-01-09",
+     "Birth_Place": "Faranah, French Guinea",
+     "Political_Party": "Democratic Party of Guinea",
+     "Known_For": "Anti-colonialism, authoritarian socialism",
+     "Spouse": "Andrée Touré",
+     "Children": "Unknown"
+   }
+ },
+ {
+   "name": "Félix Houphouët-Boigny",
+   "country": "Côte d'Ivoire",
+   "flag": "https://flagcdn.com/w320/ci.png",
+   "profile": "",
+   "description": "Félix Houphouët-Boigny, Côte d'Ivoire's founding president (1960–1993), ruled for 33 years, fostering stability through pro-French policies and capitalist economics. Nicknamed 'Le Vieux' (The Old Man), he avoided socialism, turning the country into West Africa's economic hub via cocoa and coffee exports. His repression of dissent and cult of personality drew criticism, but Ivorians enjoyed relative prosperity until a 1980s economic crash. He spent lavishly, building the world’s largest basilica in his hometown, Yamoussoukro. Houphouët-Boigny’s death triggered ethnic tensions his autocracy had suppressed. His legacy is debated: praised for development but blamed for sowing seeds of future conflict by favoring southern elites.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1960–1993",
+     "Date_of_Death": "1993-12-07",
+     "Cause_of_Death": "Cancer",
+     "Birth_Date": "1905-10-18",
+     "Birth_Place": "Yamoussoukro, French West Africa",
+     "Political_Party": "Democratic Party of Côte d'Ivoire",
+     "Known_For": "Pro-French capitalism, longevity",
+     "Spouse": "Marie-Thérèse Houphouët-Boigny",
+     "Children": "Unknown"
+   }
+ },
+ {
+   "name": "Hastings Banda",
+   "country": "Malawi",
+   "flag": "https://flagcdn.com/w320/mw.png",
+   "profile": "",
+   "description": "Hastings Banda, Malawi's 'Life President' (1966–1994), was a British-educated doctor who led the country to independence in 1964. His dictatorship banned opposition, jailed critics, and mandated loyalty through the Malawi Young Pioneers militia. Banda’s conservatism included censoring music and banning miniskirts, while his pro-Western stance won foreign aid. Though he built infrastructure, Malawi remained among the world’s poorest. Overthrown in 1994 after protests, he died in exile. Banda’s legacy is paradoxical: a tyrannical ruler who preserved stability in a region plagued by war, yet stifled progress. His name was removed from public monuments post-1994.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1966–1994",
+     "Date_of_Death": "1997-11-25",
+     "Cause_of_Death": "Respiratory failure",
+     "Birth_Date": "1898-05-15",
+     "Birth_Place": "Kasungu, British Central Africa",
+     "Political_Party": "Malawi Congress Party",
+     "Known_For": "Dictatorship, anti-communism",
+     "Spouse": "None (claimed celibacy)",
+     "Children": "None"
+   }
+ },
+ {
+   "name": "Mengistu Haile Mariam",
+   "country": "Ethiopia",
+   "flag": "https://flagcdn.com/w320/et.png",
+   "profile": "",
+   "description": "Mengistu Haile Mariam, Ethiopia's Marxist dictator (1977–1991), seized power after overthrowing Emperor Haile Selassie. His 'Red Terror' campaign executed tens of thousands to crush dissent, while famines killed millions due to forced collectivization. Backed by the USSR, he fought Somalia and Eritrean rebels, draining Ethiopia’s resources. Mengistu fled to Zimbabwe in 1991 after rebel victories and was convicted in absentia for genocide. His regime remains synonymous with brutality, though some credit him for land reforms. Today, he lives in exile, a symbol of Cold War-era ideological excesses in Africa.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1977–1991",
+     "Date_of_Death": "Still alive (as of 2023)",
+     "Cause_of_Death": "N/A",
+     "Birth_Date": "1937-05-21",
+     "Birth_Place": "Addis Ababa, Ethiopia",
+     "Political_Party": "Workers' Party of Ethiopia",
+     "Known_For": "Red Terror, Marxist dictatorship",
+     "Spouse": "Unknown",
+     "Children": "Unknown"
+   }
+ },
+ {
+   "name": "Idi Amin",
+   "country": "Uganda",
+   "flag": "https://flagcdn.com/w320/ug.png",
+   "profile": "",
+   "description": "Idi Amin, Uganda's military dictator (1971–1979), seized power in a coup, ruling with grotesque brutality. His regime killed an estimated 300,000 people, targeting ethnic groups, intellectuals, and political foes. Expelling Asians in 1972 wrecked the economy, while his buffoonish public persona (e.g., declaring himself 'Conqueror of the British Empire') masked his violence. Amin’s 1978 invasion of Tanzania led to his overthrow. He fled to Saudi Arabia, dying in 2003 without facing justice. Amin’s reign epitomized African kleptocracy and terror, immortalized in films like *The Last King of Scotland*. Uganda’s recovery took decades.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1971–1979",
+     "Date_of_Death": "2003-08-16",
+     "Cause_of_Death": "Kidney failure",
+     "Birth_Date": "1925-05-17",
+     "Birth_Place": "Koboko, Uganda",
+     "Political_Party": "Military rule",
+     "Known_For": "Genocide, erratic dictatorship",
+     "Spouse": "Multiple wives",
+     "Children": "40+"
+   }
+ },
+ {
+   "name": "Robert Mugabe",
+   "country": "Zimbabwe",
+   "flag": "https://flagcdn.com/w320/zw.png",
+   "profile": "",
+   "description": "Robert Mugabe, Zimbabwe’s leader for 37 years (1980–2017), began as a liberation hero but became a tyrant. Initially praised for reconciliation and education reforms, his 2000 land seizures from white farmers triggered economic collapse and hyperinflation. Mugabe rigged elections, jailed opponents, and clung to power until a 2017 coup. His early achievements were overshadowed by corruption and repression, turning Africa’s breadbasket into a crisis zone. Death in 2019 split opinions: some mourned an anti-colonial icon, others a despot. His mixed legacy reflects Africa’s post-independence struggles with governance.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1980–2017",
+     "Date_of_Death": "2019-09-06",
+     "Cause_of_Death": "Cancer",
+     "Birth_Date": "1924-02-21",
+     "Birth_Place": "Kutama, Southern Rhodesia",
+     "Political_Party": "ZANU–PF",
+     "Known_For": "Land reforms, authoritarianism",
+     "Spouse": "Grace Mugabe",
+     "Children": "4"
+   }
+ },
+ {
+   "name": "Paul Kagame",
+   "country": "Rwanda",
+   "flag": "https://flagcdn.com/w320/rw.png",
+   "profile": "",
+   "description": "Paul Kagame, Rwanda’s de facto leader since 1994, rose to power after ending the genocide as a rebel commander. His presidency (2000–present) transformed Rwanda into Africa’s 'Singapore'—safe, tech-savvy, and authoritarian. Kagame’s economic miracles (e.g., 8% GDP growth) coexist with stifled dissent and alleged assassinations abroad. Critics call him a dictator; admirers credit him for unity and development. Rwanda’s progress is undeniable, but questions linger about democratic backsliding and his prolonged rule. Kagame embodies the 'benevolent autocrat' paradox, reshaping a nation while centralizing power.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "2000–Present",
+     "Date_of_Death": "N/A",
+     "Cause_of_Death": "N/A",
+     "Birth_Date": "1957-10-23",
+     "Birth_Place": "Tambwe, Rwanda",
+     "Political_Party": "Rwandan Patriotic Front",
+     "Known_For": "Post-genocide recovery, authoritarian development",
+     "Spouse": "Jeannette Kagame",
+     "Children": "4"
+   }
+ },
+ {
+   "name": "Ellen Johnson Sirleaf",
+   "country": "Liberia",
+   "flag": "https://flagcdn.com/w320/lr.png",
+   "profile": "",
+   "description": "Ellen Johnson Sirleaf, Africa’s first elected female president (2006–2018), led Liberia post-civil war. A Harvard-trained economist, she won the Nobel Peace Prize for stabilizing the nation but faced criticism for nepotism and slow anti-corruption progress. Her handling of the 2014 Ebola crisis drew mixed reviews. Sirleaf’s legacy is groundbreaking yet contested: a feminist icon who broke barriers but governed cautiously in a patriarchal society. Liberia’s first peaceful power transfer in 2018 crowned her tenure, though poverty and inequality persist.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "2006–2018",
+     "Date_of_Death": "N/A",
+     "Cause_of_Death": "N/A",
+     "Birth_Date": "1938-10-29",
+     "Birth_Place": "Monrovia, Liberia",
+     "Political_Party": "Unity Party",
+     "Known_For": "First female African president, post-war reconstruction",
+     "Spouse": "Divorced",
+     "Children": "4"
+   }
+ },
+ {
+   "name": "José Eduardo dos Santos",
+   "country": "Angola",
+   "flag": "https://flagcdn.com/w320/ao.png",
+   "profile": "",
+   "description": "José Eduardo dos Santos ruled Angola for 38 years (1979–2017), transitioning from Marxism to oligarchy. His MPLA party won the civil war (1975–2002) but monopolized oil wealth, enriching his family while most Angolans languished in poverty. Dos Santos’s daughter, Isabel, became Africa’s richest woman amid corruption allegations. His handpicked successor continued MPLA dominance, but public anger over inequality endures. Dos Santos died in 2022, leaving a legacy of kleptocracy masked by postwar stability.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1979–2017",
+     "Date_of_Death": "2022-07-08",
+     "Cause_of_Death": "Cardiac arrest",
+     "Birth_Date": "1942-08-28",
+     "Birth_Place": "Luanda, Angola",
+     "Political_Party": "MPLA",
+     "Known_For": "Post-war authoritarianism, corruption",
+     "Spouse": "Ana Paula dos Santos",
+     "Children": "6"
+   }
+ },
+ {
+   "name": "Teodoro Obiang Nguema Mbasogo",
+   "country": "Equatorial Guinea",
+   "flag": "https://flagcdn.com/w320/gq.png",
+   "profile": "",
+   "description": "Teodoro Obiang, Africa’s longest-serving dictator (1979–present), seized power by executing his uncle. His regime, fueled by oil wealth, is notorious for torture, sham elections, and luxury for elites while most citizens lack clean water. Obiang’s son, 'Teodorin,' flaunts mansions and Michael Jackson memorabilia amid corruption charges. The country, dubbed the 'North Korea of Africa,' survives on repression and foreign oil deals. Obiang’s rule exemplifies resource-cursed autocracy in microstates.",
+   "images": ["", "", "", ""],
+   "details": {
+     "Governance_Years": "1979–Present",
+     "Date_of_Death": "N/A",
+     "Cause_of_Death": "N/A",
+     "Birth_Date": "1942-06-05",
+     "Birth_Place": "Acoacán, Spanish Guinea",
+     "Political_Party": "Democratic Party of Equatorial Guinea",
+     "Known_For": "Kleptocracy, extreme repression",
+     "Spouse": "Constancia Mangue",
+     "Children": "12+"
+   }
+ }
+]
