@@ -129,10 +129,10 @@ const styles = StyleSheet.create({
   },
   headerImage: {
     width: "100%",
-    height: 200,
+    height: 250,
   },
   title: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: "bold",
     marginTop: 16,
     marginHorizontal: 16,

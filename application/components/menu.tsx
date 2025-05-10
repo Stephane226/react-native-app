@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 const BUTTONS = [
   { label: "Culture", color: "#FFA500" , route : "Quiz" },       // Orange
   { label: "History", color: "#32CD32" , route :  "Quiz" },       // Green
-  { label: "Leaders", color: "#8A2BE2" , route :  "Quiz" },       // Violet
+  { label: "Countries", color: "#8A2BE2" , route :  "AllCountries" },       // Violet
   { label: "Quiz", color: "#1E90FF" ,  route : "Quiz"},          // Dodger Blue
   { label: "Languages", color: "#FF1493" ,  route : "Quiz"},     // Deep Pink
   { label: "Cuisine", color: "red" ,  route :  "Country"},       // Gold

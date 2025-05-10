@@ -6,6 +6,8 @@ import Settings from "./screens/settings";
 import Map from "./screens/map";
 import Quiz from './screens/quiz'
 import Country from './screens/country'
+import AllCountries from './screens/allCountries'
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -22,6 +24,8 @@ export default function App() {
         <Stack.Screen name="Map" component={Map} />
         <Stack.Screen name="Quiz" component={Quiz} /> 
         <Stack.Screen name="Country" component={Country} /> 
+        <Stack.Screen name="AllCountries" component={AllCountries} />
+
 
         
       </Stack.Navigator>
