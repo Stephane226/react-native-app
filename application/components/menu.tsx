@@ -10,7 +10,7 @@ const BUTTONS = [
   { label: "Leaders", color: "#8A2BE2" , route :  "Quiz" },       // Violet
   { label: "Quiz", color: "#1E90FF" ,  route : "Quiz"},          // Dodger Blue
   { label: "Languages", color: "#FF1493" ,  route : "Quiz"},     // Deep Pink
-  { label: "Cuisine", color: "red" ,  route :  "Quiz"},       // Gold
+  { label: "Cuisine", color: "red" ,  route :  "Country"},       // Gold
 ];
 
 export default function Menu() {

@@ -11,6 +11,7 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as ScreenOrientation from "expo-screen-orientation";
 import GeneralLayout from "../layouts/generalLayout";
+import { useNavigation } from "@react-navigation/native";
 
 
 // importing quiz JSON
@@ -28,6 +29,8 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Octicons from "@expo/vector-icons/Octicons";
 
 export default function Quiz() {
+  const navigation = useNavigation();
+
   const QUESTION_TIME = 60;
   const TOTAL_TIME = 1000;
 
@@ -114,7 +117,8 @@ export default function Quiz() {
 
   if (currentIndex === -1) {
     return (
-      <View style={styles.container}>
+      <GeneralLayout>
+      <View style={styles.containerWelcomeQz}>
         <Text style={styles.title}>Welcome to the Quiz!</Text>
         <TouchableOpacity
           style={styles.button}
@@ -123,16 +127,30 @@ export default function Quiz() {
           <Text style={styles.buttonText}>Start Quiz</Text>
         </TouchableOpacity>
       </View>
+      </GeneralLayout>
     );
   }
 
   if (showResult) {
     return (
-      <View style={styles.container}>
+      <GeneralLayout>
+      <View style={styles.containerWelcomeQz}>
         <Text style={styles.title}>
           Your Score: {score}/{questions.length}
         </Text>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => { navigation.navigate("Quiz")
+            setCurrentIndex(-1)
+          }}
+        >
+          <Text style={styles.buttonText}>Let's make better!</Text>
+        </TouchableOpacity>
+
+
       </View>
+      </GeneralLayout>
     );
   }
 
@@ -590,6 +608,12 @@ const styles = StyleSheet.create({
     justifyContent: "top",
     backgroundColor: "#d9d9d947",
   },
+
+  containerWelcomeQz:{
+   flex:1,
+   justifyContent:'center'
+  },
+
   image: {
     width: "100%",
     height: 170,
@@ -643,9 +667,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    backgroundColor: "#007AFF",
+    backgroundColor: "orange",
     padding: 15,
-    borderRadius: 10,
+    borderRadius: 50,
     marginHorizontal: 30,
   },
   buttonText: { color: "white", fontSize: 18, textAlign: "center" },
