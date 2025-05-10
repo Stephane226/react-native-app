@@ -29,7 +29,7 @@ export default function Menu() {
     </View>
   );
 }
-
+ 
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",

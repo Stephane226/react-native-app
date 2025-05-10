@@ -10,6 +10,8 @@ import {
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as ScreenOrientation from "expo-screen-orientation";
+import GeneralLayout from "../layouts/generalLayout";
+
 
 // importing quiz JSON
 import questions from "../includes/questions.json";
@@ -137,15 +139,17 @@ export default function Quiz() {
   const currentQuestion: Question = questions[currentIndex];
 
   return (
+    <GeneralLayout>
     <View style={styles.container}>
       <View
         style={{
           marginHorizontal: 15,
           marginBottom: 20,
-          display: "flex",
+          display: "none",
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
+
         }}
       >
         <View style={{}}>
@@ -199,7 +203,7 @@ export default function Quiz() {
         marginHorizontal : 12,
         borderColor:'gray',
         borderWidth : 1,
-        height:10,
+        height:6,
         borderRadius : 20,
       }}>
 
@@ -575,12 +579,13 @@ export default function Quiz() {
         </View>
       </View>
     </View>
+    </GeneralLayout>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
+    paddingTop: 20,
     flex: 1,
     justifyContent: "top",
     backgroundColor: "#d9d9d947",
@@ -592,10 +597,10 @@ const styles = StyleSheet.create({
   },
   indexQuest: {
     backgroundColor: "black",
-    padding: 12,
+    padding: 10,
     borderRadius: 7,
   },
-  indexQuestText: { color: "white", fontSize: 16 },
+  indexQuestText: { color: "white", fontSize: 14 },
 
   optionSelect: {
     borderColor: "gray",
