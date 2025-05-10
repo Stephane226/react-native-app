@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   View,
   Text,
@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import GeneralLayout from "../layouts/generalLayout";
-
+import CountryLoader from '../loaders/countryLoader'
 const countryData = {
   name: "Burkina Faso",
   description:
@@ -48,8 +48,24 @@ export default function Country() {
     setModalVisible(true);
   };
 
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+   const timer = setTimeout(() => {
+     setLoading(false);
+   }, 2000);
+
+   return () => clearTimeout(timer);
+ }, []);
+
+
+
   return (
    <GeneralLayout>
+       {loading ? (
+      <CountryLoader />
+    ) : (
+      <>
     <View style={styles.container}>
       {/* Header Image */}
       <Image source={{ uri: countryData.image }} style={styles.headerImage} />
@@ -96,6 +112,9 @@ export default function Country() {
       </View>
     </ScrollView>
     </View>
+     
+     </>  )}
+
     </GeneralLayout>
   );
 }
