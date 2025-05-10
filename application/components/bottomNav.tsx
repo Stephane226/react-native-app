@@ -1,32 +1,35 @@
 import React from "react";
 import { View, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
 import { Ionicons, Feather, FontAwesome, MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const { width } = Dimensions.get("window");
 
 export default function BottomNav() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.menuContainer}>
       {/* Left Icons */}
-      <TouchableOpacity style={styles.iconButton}>
+      <TouchableOpacity style={styles.iconButton} onPress={() => navigation.navigate("Map")}>
         <Feather name="search" size={22} color="#333" />
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.iconButton}>
+      <TouchableOpacity style={styles.iconButton} onPress={() => alert("Profile")}>
         <FontAwesome name="user-o" size={22} color="#333" />
       </TouchableOpacity>
 
       {/* Center Home Icon */}
-      <TouchableOpacity style={styles.homeButton}>
+      <TouchableOpacity style={styles.homeButton} onPress={() => navigation.navigate("Home")}>
         <Ionicons name="home" size={28} color="#fff" />
       </TouchableOpacity>
 
       {/* Right Icons */}
-      <TouchableOpacity style={styles.iconButton}>
+      <TouchableOpacity style={styles.iconButton} onPress={() => alert("Favorites")}>
         <MaterialIcons name="favorite-border" size={22} color="#333" />
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.iconButton}>
+      <TouchableOpacity style={styles.iconButton} onPress={() => navigation.navigate("Settings")}>
         <Feather name="settings" size={22} color="#333" />
       </TouchableOpacity>
     </View>
@@ -38,7 +41,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-   position:'absolute',
+    position: "absolute",
     bottom: 30,
     width: width - 32,
     marginHorizontal: 16,

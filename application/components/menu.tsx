@@ -1,21 +1,27 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useNavigation } from "@react-navigation/native";
+
 
 const BUTTONS = [
-  { label: "Culture", color: "#FFA500" },       // Orange
-  { label: "History", color: "#32CD32" },       // Green
-  { label: "Leaders", color: "#8A2BE2" },       // Violet
-  { label: "Quiz", color: "#1E90FF" },          // Dodger Blue
-  { label: "Languages", color: "#FF1493" },     // Deep Pink
-  { label: "Cuisine", color: "red" },       // Gold
+  { label: "Culture", color: "#FFA500" , route : "Quiz" },       // Orange
+  { label: "History", color: "#32CD32" , route :  "Quiz" },       // Green
+  { label: "Leaders", color: "#8A2BE2" , route :  "Quiz" },       // Violet
+  { label: "Quiz", color: "#1E90FF" ,  route : "Quiz"},          // Dodger Blue
+  { label: "Languages", color: "#FF1493" ,  route : "Quiz"},     // Deep Pink
+  { label: "Cuisine", color: "red" ,  route :  "Quiz"},       // Gold
 ];
 
 export default function Menu() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       {BUTTONS.map((btn, idx) => (
-        <TouchableOpacity key={idx} style={[styles.button, { backgroundColor: btn.color }]}>
+        <TouchableOpacity key={idx} style={[styles.button, { backgroundColor: btn.color }]} 
+          onPress={() => navigation.navigate(btn.route)}
+        >
           <Ionicons name="calculator-outline" size={24} color="white" />
           <Text style={styles.buttonText}>{btn.label}</Text>
         </TouchableOpacity>

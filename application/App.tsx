@@ -1,18 +1,26 @@
-import React, { useState, useEffect, useRef } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Alert, ViewStyle } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import * as ScreenOrientation from "expo-screen-orientation";
-
-//importing screens
-import Quiz from './screens/quiz.tsx'
-import Home from './screens/home.tsx'
-
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "./screens/home";
+import Settings from "./screens/settings";
+import Map from "./screens/map";
+import Quiz from './screens/quiz'
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-
-
   return (
-     <Home />
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          animation: "fade",
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="Map" component={Map} />
+        <Stack.Screen name="Quiz" component={Quiz} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
